@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Canvas"
+run/main_scene="uid://drgndmbgpjgyk"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom="uid://dn86y02omkr6x"
 
 [physics]
 

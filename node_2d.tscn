@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://brlw73fmpjcba"]
+
+[ext_resource type="Texture2D" uid="uid://c740q5dxj4ijg" path="res://Dummy Test.png" id="1_d2bti"]
+[ext_resource type="PackedScene" uid="uid://eagcnhhe6xbk" path="res://combat.tscn" id="2_0e48y"]
+
+[node name="Node2D" type="Node2D" unique_id=253517067]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=267575621]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1222946409]
+texture_filter = 1
+position = Vector2(4.7683716e-07, -52.000004)
+scale = Vector2(8, 8)
+texture = ExtResource("1_d2bti")
+
+[node name="Control" parent="." unique_id=472120450 instance=ExtResource("2_0e48y")]

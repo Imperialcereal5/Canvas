@@ -1,0 +1,418 @@
+[gd_scene format=3 uid="uid://b8snpdec3m88v"]
+
+[ext_resource type="Script" path="res://logic.gd" id="1_emiek"]
+[ext_resource type="Theme" uid="uid://dn86y02omkr6x" path="res://textures/button.tres" id="2_mwu64"]
+[ext_resource type="Script" path="res://spells.gd" id="3_3qp1m"]
+[ext_resource type="Script" path="res://unMagicBtn.gd" id="4_gwxrf"]
+[ext_resource type="Script" path="res://magicBtn.gd" id="5_s8h3r"]
+[ext_resource type="Script" path="res://attack.gd" id="6_bs7xg"]
+[ext_resource type="Script" path="res://player_stats.gd" id="7_psfgy"]
+[ext_resource type="Script" path="res://enemy_stats.gd" id="8_ep83l"]
+[ext_resource type="Script" path="res://items.gd" id="9_bshfd"]
+[ext_resource type="Script" path="res://itemBtn.gd" id="10_gmpjy"]
+[ext_resource type="Script" path="res://diceOpen.gd" id="11_f0o7t"]
+[ext_resource type="Texture2D" uid="uid://4bk1gta1g3v7" path="res://d20.png" id="12_tqlj7"]
+[ext_resource type="Script" path="res://lock.gd" id="13_eax3p"]
+[ext_resource type="Texture2D" uid="uid://b0ldtb52o14t2" path="res://unlocked.png" id="14_spmlv"]
+[ext_resource type="Script" path="res://enemy_die.gd" id="15_8x2sr"]
+[ext_resource type="Script" path="res://dice.gd" id="16_i5m17"]
+[ext_resource type="Script" path="res://active_die.gd" id="17_d3edh"]
+[ext_resource type="Script" path="res://active_die_2.gd" id="18_u1lqs"]
+[ext_resource type="Script" path="res://active_die_3.gd" id="19_rdcqr"]
+
+[node name="Control" type="Control" unique_id=472120450]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -575.0
+offset_top = -325.0
+offset_right = 577.0
+offset_bottom = 324.0
+script = ExtResource("1_emiek")
+
+[node name="buttons" type="Panel" parent="." unique_id=2108101280]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 413.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("2_mwu64")
+
+[node name="Panel" type="Panel" parent="buttons" unique_id=315275765]
+visible = false
+layout_mode = 0
+offset_left = 286.0
+offset_top = 13.0
+offset_right = 860.0
+offset_bottom = 217.0
+theme = ExtResource("2_mwu64")
+script = ExtResource("3_3qp1m")
+
+[node name="spell1" type="Button" parent="buttons/Panel" unique_id=1769283762]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 169.0
+offset_bottom = 71.0
+theme = ExtResource("2_mwu64")
+text = "SPELL 1"
+
+[node name="spell2" type="Button" parent="buttons/Panel" unique_id=353641573]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 82.0
+offset_right = 169.0
+offset_bottom = 127.0
+theme = ExtResource("2_mwu64")
+text = "SPELL 2"
+
+[node name="spell3" type="Button" parent="buttons/Panel" unique_id=735976953]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 135.0
+offset_right = 169.0
+offset_bottom = 182.0
+theme = ExtResource("2_mwu64")
+text = "SPELL 3
+"
+
+[node name="spell4" type="Button" parent="buttons/Panel" unique_id=733723249]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 26.0
+offset_right = 548.0
+offset_bottom = 71.0
+theme = ExtResource("2_mwu64")
+text = "SPELL 4"
+
+[node name="spell5" type="Button" parent="buttons/Panel" unique_id=1650431625]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 85.0
+offset_right = 549.0
+offset_bottom = 130.0
+theme = ExtResource("2_mwu64")
+text = "SPELL 5"
+
+[node name="spell6" type="Button" parent="buttons/Panel" unique_id=2076013217]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 142.0
+offset_right = 550.0
+offset_bottom = 187.0
+theme = ExtResource("2_mwu64")
+text = "SPELL 6"
+
+[node name="exit" type="Button" parent="buttons/Panel" unique_id=1235194650]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 145.0
+offset_right = 354.0
+offset_bottom = 190.0
+theme = ExtResource("2_mwu64")
+text = "EXIT"
+script = ExtResource("4_gwxrf")
+
+[node name="Pass" type="Button" parent="buttons" unique_id=1628130094]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 151.0
+offset_right = 237.0
+offset_bottom = 211.0
+theme = ExtResource("2_mwu64")
+text = "PASS"
+
+[node name="Magic" type="Button" parent="buttons" unique_id=179953578]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 139.0
+offset_right = 656.0
+offset_bottom = 199.0
+theme = ExtResource("2_mwu64")
+text = "MAGIC"
+script = ExtResource("5_s8h3r")
+
+[node name="Attack" type="Button" parent="buttons" unique_id=1866995724]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 58.0
+offset_right = 232.0
+offset_bottom = 118.0
+theme = ExtResource("2_mwu64")
+text = "ATTACK"
+script = ExtResource("6_bs7xg")
+
+[node name="Item" type="Button" parent="buttons" unique_id=420664375]
+layout_mode = 0
+offset_left = 923.0
+offset_top = 57.0
+offset_right = 1095.0
+offset_bottom = 117.0
+theme = ExtResource("2_mwu64")
+text = "ITEM"
+
+[node name="Flee" type="Button" parent="buttons" unique_id=356466838]
+layout_mode = 0
+offset_left = 923.0
+offset_top = 148.0
+offset_right = 1095.0
+offset_bottom = 208.0
+theme = ExtResource("2_mwu64")
+text = "FLEE"
+
+[node name="PlayerStats" type="Panel" parent="." unique_id=996401811]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 361.0
+offset_right = 1154.0
+offset_bottom = 425.0
+theme = ExtResource("2_mwu64")
+script = ExtResource("7_psfgy")
+
+[node name="Label" type="Label" parent="PlayerStats" unique_id=1913235520]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = 217.0
+offset_bottom = 59.0
+text = "HP: 20/20"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PlayerStats" unique_id=1428781545]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 4.0
+offset_right = 1142.0
+offset_bottom = 62.0
+text = "MP: 0/50"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="PlayerStats" unique_id=144148129]
+visible = false
+layout_mode = 0
+offset_left = 527.0
+offset_right = 727.0
+offset_bottom = 58.0
+text = "Roll: "
+vertical_alignment = 1
+
+[node name="EnemyStats" type="Panel" parent="." unique_id=126446439]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 15.0
+offset_right = 1155.0
+offset_bottom = 79.0
+theme = ExtResource("2_mwu64")
+script = ExtResource("8_ep83l")
+
+[node name="Label" type="Label" parent="EnemyStats" unique_id=948460611]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = 217.0
+offset_bottom = 59.0
+text = "HP: 20/20"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="EnemyStats" unique_id=634066127]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 4.0
+offset_right = 1142.0
+offset_bottom = 62.0
+text = "MP: 0/50"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="EnemyStats" unique_id=513409558]
+visible = false
+layout_mode = 0
+offset_left = 527.0
+offset_right = 727.0
+offset_bottom = 58.0
+text = "Roll: "
+vertical_alignment = 1
+
+[node name="Items" type="Panel" parent="." unique_id=288941494]
+visible = false
+layout_mode = 0
+offset_left = 708.0
+offset_top = 189.0
+offset_right = 923.0
+offset_bottom = 530.0
+script = ExtResource("9_bshfd")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Items" unique_id=181872401]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 334.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Items/ScrollContainer" unique_id=645179731]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="(copyButton)" type="Button" parent="Items/ScrollContainer/VBoxContainer" unique_id=903963699]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("10_gmpjy")
+
+[node name="PanelContainer" type="PanelContainer" parent="Items/ScrollContainer/VBoxContainer/(copyButton)" unique_id=696507265]
+visible = false
+layout_mode = 0
+offset_left = 98.0
+offset_top = -2.0
+offset_right = 204.0
+offset_bottom = 176.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Items/ScrollContainer/VBoxContainer/(copyButton)/PanelContainer" unique_id=177492239]
+layout_mode = 2
+text = "Dummy item that you shouldn't be able to see"
+autowrap_mode = 2
+
+[node name="diceUI" type="Control" parent="." unique_id=1119686471]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="playerDie" type="Button" parent="diceUI" unique_id=163775315]
+layout_mode = 0
+offset_left = 1052.0
+offset_top = 147.0
+offset_right = 1157.0
+offset_bottom = 326.0
+theme = ExtResource("2_mwu64")
+text = "20"
+script = ExtResource("11_f0o7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="diceUI/playerDie" unique_id=1152877118]
+position = Vector2(53.000008, 89)
+scale = Vector2(0.5034376, 0.50125)
+texture = ExtResource("12_tqlj7")
+
+[node name="lock" type="Button" parent="diceUI/playerDie" unique_id=1301389703]
+layout_mode = 0
+offset_top = 147.0
+offset_right = 102.0
+offset_bottom = 175.0
+icon_alignment = 1
+script = ExtResource("13_eax3p")
+
+[node name="lock" type="Sprite2D" parent="diceUI/playerDie/lock" unique_id=1120296546]
+position = Vector2(48.99997, 13)
+scale = Vector2(0.05810805, 0.04204806)
+texture = ExtResource("14_spmlv")
+
+[node name="enemyDie" type="Panel" parent="diceUI" unique_id=159285638]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 154.0
+offset_right = 102.0
+offset_bottom = 322.0
+theme = ExtResource("2_mwu64")
+script = ExtResource("15_8x2sr")
+
+[node name="Sprite2D" type="Sprite2D" parent="diceUI/enemyDie" unique_id=371261144]
+position = Vector2(57.000008, 89)
+scale = Vector2(0.5034376, 0.50125)
+texture = ExtResource("12_tqlj7")
+
+[node name="Label" type="Label" parent="diceUI/enemyDie" unique_id=127876178]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 79.0
+offset_right = 89.0
+offset_bottom = 102.0
+text = "20"
+
+[node name="DiceRect" type="ColorRect" parent="diceUI" unique_id=1012188039]
+visible = false
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 0.57254905)
+
+[node name="Dice" type="Panel" parent="diceUI/DiceRect" unique_id=1030633373]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 148.0
+offset_right = 780.0
+offset_bottom = 317.0
+script = ExtResource("16_i5m17")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="diceUI/DiceRect/Dice" unique_id=1135364730]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 395.0
+offset_bottom = 162.0
+
+[node name="activeDie" type="Button" parent="diceUI/DiceRect/Dice/HBoxContainer" unique_id=351381982]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("17_d3edh")
+
+[node name="Sprite2D" type="Sprite2D" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie" unique_id=487100551]
+position = Vector2(63.000008, 86)
+scale = Vector2(0.5034376, 0.50125)
+texture = ExtResource("12_tqlj7")
+
+[node name="PanelContainer" type="PanelContainer" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie" unique_id=358464674]
+visible = false
+layout_mode = 0
+offset_left = -128.0
+offset_top = -67.0
+offset_right = -3.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie/PanelContainer" unique_id=1856583428]
+layout_mode = 2
+text = "The default die. Rolls from 1 to the max value with a linear distribution"
+autowrap_mode = 2
+
+[node name="activeDie2" type="Button" parent="diceUI/DiceRect/Dice/HBoxContainer" unique_id=780559206]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("18_u1lqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie2" unique_id=100777506]
+position = Vector2(63.000008, 86)
+scale = Vector2(0.5034376, 0.50125)
+texture = ExtResource("12_tqlj7")
+
+[node name="PanelContainer" type="PanelContainer" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie2" unique_id=1773213111]
+visible = false
+layout_mode = 0
+offset_left = -128.0
+offset_top = -67.0
+offset_right = -3.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie2/PanelContainer" unique_id=699431131]
+layout_mode = 2
+text = "An old coin. Rolls either 1 or 20 with 50/50 odds"
+autowrap_mode = 2
+
+[node name="activeDie3" type="Button" parent="diceUI/DiceRect/Dice/HBoxContainer" unique_id=970118126]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("19_rdcqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie3" unique_id=204099001]
+position = Vector2(63.000008, 86)
+scale = Vector2(0.5034376, 0.50125)
+texture = ExtResource("12_tqlj7")
+
+[node name="PanelContainer" type="PanelContainer" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie3" unique_id=899394615]
+visible = false
+layout_mode = 0
+offset_left = -128.0
+offset_top = -67.0
+offset_right = -3.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="diceUI/DiceRect/Dice/HBoxContainer/activeDie3/PanelContainer" unique_id=2008046921]
+layout_mode = 2
+text = "A very normal die. Rolls from 0 to 20 following the normal distribution"
+autowrap_mode = 2
