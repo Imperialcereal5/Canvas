@@ -1,7 +1,6 @@
 extends CharacterBody2D
 @onready var combat: Control = $"../sideOn/Combat"
 @onready var side_on: Node2D = $"../sideOn"
-@onready var area_2d: Area2D = $"../Panel/Area2D"
 var speed = 500
 # Called when the node enters the scene tree for the first time.
 
