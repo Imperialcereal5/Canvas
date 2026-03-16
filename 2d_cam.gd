@@ -12,5 +12,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.x = player.position.x
-	bg_front.position.x = -(1.0/16.0)*(position.x - initPos.x)
-	bg_back.position.x = -(1.0/8.0)*(position.x - initPos.x)
+	bg_front.position.x = -(1.0/4.0)*(position.x - initPos.x)
+	bg_back.position.x = -(1.0/2.0)*(position.x - initPos.x)
