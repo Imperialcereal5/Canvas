@@ -268,7 +268,6 @@ tile_set = SubResource("TileSet_lgr22")
 
 [node name="Camera2D" type="Camera2D" parent="Overworld" unique_id=1774852637]
 position = Vector2(-3790, 1000)
-enabled = false
 zoom = Vector2(0.5, 0.5)
 limit_left = -4562
 limit_top = -2067
@@ -313,6 +312,7 @@ script = ExtResource("9_wkp8b")
 
 [node name="2dCam" type="Camera2D" parent="Overworld/sideOn" unique_id=436418800]
 position = Vector2(-5483, -153)
+enabled = false
 zoom = Vector2(2, 2)
 limit_top = -320
 limit_bottom = 10
@@ -335,7 +335,6 @@ tile_map_data = PackedByteArray("AADm/gAAAAABAAAAAADn/gAAAAABAAAAAADo/gAAAAABAAE
 tile_set = SubResource("TileSet_kjvhd")
 
 [node name="Combat" parent="Overworld/sideOn" unique_id=472120450 instance=ExtResource("1_glv2v")]
-visible = false
 
 [node name="Player" type="CharacterBody2D" parent="Overworld/sideOn" unique_id=2021273850]
 position = Vector2(-5564, -173)
