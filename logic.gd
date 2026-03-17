@@ -3,6 +3,7 @@ extends Control
 @onready var buttons: Panel = $buttons
 @onready var control: Control = $"."
 @onready var player_stats: Panel = $PlayerStats
+@onready var _2d_cam: Camera2D = $"../2dCam"	
 var dice: Dictionary
 var playerRoll = 0
 var enemyRoll = 0
@@ -25,13 +26,18 @@ class normalDie:
 			if t > n or i==20:
 				return i
 		return 0
-		
-		
+	
+func toggleCam():
+	if visible:
+		$combatCam.make_current()
+	else:
+		_2d_cam.make_current()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var default = die.new()
 	var coin = coinDie.new()
 	var normal = normalDie.new()
+	visibility_changed.connect(toggleCam)
 	dice = {
 		"default": default,
 		"coin": coin,

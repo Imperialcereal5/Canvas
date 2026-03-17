@@ -308,11 +308,11 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_20pc6")
 
 [node name="sideOn" type="Node2D" parent="Overworld" unique_id=574671401]
+visible = false
 script = ExtResource("9_wkp8b")
 
 [node name="2dCam" type="Camera2D" parent="Overworld/sideOn" unique_id=436418800]
 position = Vector2(-5483, -153)
-enabled = false
 zoom = Vector2(2, 2)
 limit_top = -320
 limit_bottom = 10
