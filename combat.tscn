@@ -106,44 +106,44 @@ script = ExtResource("4_gwxrf")
 
 [node name="Pass" type="Button" parent="buttons" unique_id=1628130094]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 151.0
-offset_right = 237.0
-offset_bottom = 211.0
+offset_left = 972.0
+offset_top = 10.0
+offset_right = 1144.0
+offset_bottom = 230.0
 text = "PASS"
 
 [node name="Magic" type="Button" parent="buttons" unique_id=179953578]
 layout_mode = 0
-offset_left = 484.0
-offset_top = 139.0
-offset_right = 656.0
-offset_bottom = 199.0
+offset_left = 5.0
+offset_top = 65.0
+offset_right = 177.0
+offset_bottom = 120.0
 text = "MAGIC"
 script = ExtResource("5_s8h3r")
 
 [node name="Attack" type="Button" parent="buttons" unique_id=1866995724]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 58.0
-offset_right = 232.0
-offset_bottom = 118.0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 177.0
+offset_bottom = 65.0
 text = "ATTACK"
 script = ExtResource("6_bs7xg")
 
 [node name="Item" type="Button" parent="buttons" unique_id=420664375]
 layout_mode = 0
-offset_left = 923.0
-offset_top = 57.0
-offset_right = 1095.0
-offset_bottom = 117.0
+offset_left = 5.0
+offset_top = 120.0
+offset_right = 177.0
+offset_bottom = 175.0
 text = "ITEM"
 
 [node name="Flee" type="Button" parent="buttons" unique_id=356466838]
 layout_mode = 0
-offset_left = 923.0
-offset_top = 148.0
-offset_right = 1095.0
-offset_bottom = 208.0
+offset_left = 5.0
+offset_top = 175.0
+offset_right = 177.0
+offset_bottom = 230.0
 text = "FLEE"
 
 [node name="PlayerStats" type="Panel" parent="." unique_id=996401811]

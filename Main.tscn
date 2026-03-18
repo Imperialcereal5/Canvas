@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dbx3i122aq7ex" path="res://box.gd" id="6_03owx"]
 [ext_resource type="Texture2D" uid="uid://q4oxmb8sjuqm" path="res://ButtonStandard.png" id="7_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://b0ldtb52o14t2" path="res://unlocked.png" id="8_20pc6"]
+[ext_resource type="Script" uid="uid://dfp6ua8w5fjn" path="res://digi_box.gd" id="9_5tuhn"]
 [ext_resource type="Script" uid="uid://q7bpbuxjb3oa" path="res://side_on.gd" id="9_wkp8b"]
 [ext_resource type="Script" uid="uid://dpcwcbfk0r38h" path="res://2d_cam.gd" id="10_c6i3y"]
 [ext_resource type="Texture2D" uid="uid://br6b1244hthl5" path="res://Background_pixe_frontl.png" id="11_5vvyt"]
@@ -250,7 +251,7 @@ sources/0 = SubResource("TileSetAtlasSource_sc1dx")
 size = Vector2(20, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpfj3"]
-size = Vector2(20, 5)
+size = Vector2(15, 5)
 
 [node name="Node2D" type="Node2D" unique_id=219067130]
 
@@ -309,8 +310,29 @@ visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_20pc6")
 
-[node name="sideOn" type="Node2D" parent="Overworld" unique_id=574671401]
+[node name="digiBox" type="StaticBody2D" parent="Overworld" unique_id=1258079992]
+position = Vector2(-500, 500)
+script = ExtResource("9_5tuhn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Overworld/digiBox" unique_id=1809497660]
+scale = Vector2(3.5208333, 3.75)
+texture = ExtResource("7_wkp8b")
+
+[node name="hitbox" type="CollisionShape2D" parent="Overworld/digiBox" unique_id=2014100189]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_5vvyt")
+
+[node name="Area2D" type="Area2D" parent="Overworld/digiBox" unique_id=1873369621]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/digiBox/Area2D" unique_id=830513069]
+shape = SubResource("CircleShape2D_c6i3y")
+
+[node name="interactDialog" type="Sprite2D" parent="Overworld/digiBox" unique_id=1357743571]
 visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_20pc6")
+
+[node name="sideOn" type="Node2D" parent="Overworld" unique_id=574671401]
 script = ExtResource("9_wkp8b")
 
 [node name="2dCam" type="Camera2D" parent="Overworld/sideOn" unique_id=436418800]
@@ -365,5 +387,6 @@ offset_left = -8115.0
 offset_top = 101.0
 offset_right = -2115.0
 offset_bottom = 3601.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("17_sc1dx")

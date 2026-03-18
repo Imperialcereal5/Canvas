@@ -33,6 +33,8 @@ func toggleCam():
 	else:
 		_2d_cam.make_current()
 # Called when the node enters the scene tree for the first time.
+func encounter(sprite, hp, ai):
+	pass
 func _ready() -> void:
 	var default = die.new()
 	var coin = coinDie.new()
@@ -43,6 +45,7 @@ func _ready() -> void:
 		"coin": coin,
 		"normal": normal
 	}
+	show()
 	player_stats.haveTurn()
 	#dieSprite.get_parent().pressed.connect(spinDie.bind(20))
 	#get_node("Attack").pressed.connect(updUI)

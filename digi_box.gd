@@ -1,0 +1,9 @@
+extends "res://box.gd"
+
+
+# Called when the node enters the scene tree for the first time.
+func interact():
+	side_on.show()
+	await side_on.setup(side_on.zones[0])
+	timer = 1
+# Called every frame. 'delta' is the elapsed time since the previous frame.
