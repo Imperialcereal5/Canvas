@@ -12,9 +12,8 @@ class Zone:
 	var pixelBGBack = preload("res://Background_pixe_back.png")
 	var digiBGFront = preload("res://digiBgFront.png")
 	var digiBGBack = preload("res://digiBgBack.png")
-	var fader: ColorRect
 	
-	func _init(a:String, maxC:Vector2, minC:Vector2, m:TileMapLayer):
+	func _init(a:String, minC:Vector2, maxC:Vector2, m:TileMapLayer):
 		area = a
 		maxCoords = maxC
 		minCoords = minC
@@ -24,9 +23,9 @@ func setup(zone):
 	player.position = Vector2(-7500, 0)
 	await fader.fadeIn()
 	print(zone.minCoords)
-	#cam.limit_bottom = int(zone.minCoords.y)
+	#cam.minY = int(zone.minCoords.y)
 	cam.minX = int(zone.minCoords.x)
-	#cam.limit_right = int(zone.maxCoords.x)
+	#cam.maxY = int(zone.maxCoords.x)
 	cam.maxX = int(zone.maxCoords.y)
 	if zone.area == "pixel":
 		cam.get_child(0).texture = zone.pixelBGBack
@@ -39,7 +38,7 @@ func setup(zone):
 		
 @onready var levelmaps: Node2D = $levelmaps
 var zones = []
-var coords = [[-6942, 324, -9076, -324]]
+var coords = [[-9076, -10, -6942, 10]]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

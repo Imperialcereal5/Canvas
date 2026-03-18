@@ -5,6 +5,8 @@ extends Camera2D
 @onready var initPos = Vector2(-7500, 0)
 var minX = -10000
 var maxX = 10000
+var minY = -10000
+var maxY = 10000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +15,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.x = clamp(player.position.x, minX, maxX)
-	position.y = player.position.y
-	bg_front.position.x = -(1.0/4.0)*(position.x - initPos.x)
-	bg_back.position.x = -(1.0/2.0)*(position.x - initPos.x)
+	position.y = clamp(player.position.y,minY,maxY)
+	bg_front.position.x = -(1.0/4.0)*(position - initPos).x
+	bg_back.position.x = -(1.0/2.0)*(position - initPos).x
+	#print(position)
 	

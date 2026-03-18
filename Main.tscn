@@ -354,9 +354,9 @@ target_position = Vector2(0, 0)
 collide_with_areas = true
 
 [node name="fader" type="ColorRect" parent="Overworld" unique_id=827979385]
-offset_left = -7800.0
-offset_top = -175.0
-offset_right = -1800.0
-offset_bottom = 3325.0
+offset_left = -8115.0
+offset_top = 101.0
+offset_right = -2115.0
+offset_bottom = 3601.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("17_sc1dx")
