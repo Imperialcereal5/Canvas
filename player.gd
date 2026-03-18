@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var feet: ShapeCast2D = $ShapeCast2D
 var speed = 100
-var jumpPwr = 250
+var jumpPwr = 275
 @onready var side_on: Node2D = $".."
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

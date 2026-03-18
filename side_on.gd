@@ -18,11 +18,14 @@ class Zone:
 		maxCoords = maxC
 		minCoords = minC
 		map = m
+		map.collision_enabled = false
+		map.hide()
 		
 func setup(zone):
+	zone.map.collision_enabled = true
+	zone.map.show()
 	player.position = Vector2(-7500, 0)
 	await fader.fadeIn()
-	print(zone.minCoords)
 	#cam.minY = int(zone.minCoords.y)
 	cam.minX = int(zone.minCoords.x)
 	#cam.maxY = int(zone.maxCoords.x)
@@ -32,18 +35,23 @@ func setup(zone):
 		cam.get_child(1).texture = zone.pixelBGFront
 		cam.get_child(0).scale = Vector2(3.3, 3.3)
 		cam.get_child(1).scale = Vector2(3.3, 3.3)
+	elif zone.area == "digital":
+		cam.get_child(0).texture = zone.digiBGBack
+		cam.get_child(1).texture = zone.digiBGFront
+		cam.get_child(0).scale = Vector2(1, 1)
+		cam.get_child(1).scale = Vector2(1, 1)
 	cam.make_current()
 	fader.position = cam.position + Vector2(-1000, -1000)
 	await fader.fadeOut()
 		
 @onready var levelmaps: Node2D = $levelmaps
 var zones = []
-var coords = [[-9076, -10, -6942, 10]]
+var coords = [[-9076, -10, -6942, 10],[-9076, -10, -6942, 10]]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(len(coords)):
-		if i < 10:
+		if i < 1:
 			zones.append(Zone.new("pixel",Vector2(coords[i][0],coords[i][1]),Vector2(coords[i][2],coords[i][3]),levelmaps.get_child(i)))
 		elif i < 20:
 			zones.append(Zone.new("digital",Vector2(coords[i][0],coords[i][1]),Vector2(coords[i][2],coords[i][3]),levelmaps.get_child(i)))

@@ -18,5 +18,6 @@ func _process(delta: float) -> void:
 	position.y = clamp(player.position.y,minY,maxY)
 	bg_front.position.x = -(1.0/4.0)*(position - initPos).x
 	bg_back.position.x = -(1.0/2.0)*(position - initPos).x
+	bg_front.position.y = clamp(-1.0*(position - initPos).y, 0, 10000)/4.0
 	#print(position)
 	

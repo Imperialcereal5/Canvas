@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bjdcp2bioaoxg" path="res://tiles1.png" id="13_fpfj3"]
 [ext_resource type="Texture2D" uid="uid://c740q5dxj4ijg" path="res://Dummy Test.png" id="14_c2ibq"]
 [ext_resource type="Script" uid="uid://gxtag46iu5ep" path="res://player.gd" id="14_j4qnp"]
+[ext_resource type="TileSet" uid="uid://c6gyu0oacg6uj" path="res://digiSet.tres" id="14_kjvhd"]
 [ext_resource type="Script" uid="uid://bvh22pa6y70op" path="res://fader.gd" id="17_sc1dx"]
 
 [sub_resource type="Theme" id="Theme_r0du0"]
@@ -330,8 +331,14 @@ texture = ExtResource("11_5vvyt")
 [node name="levelmaps" type="Node2D" parent="Overworld/sideOn" unique_id=2048494947]
 
 [node name="pixel-1" type="TileMapLayer" parent="Overworld/sideOn/levelmaps" unique_id=1679728892]
-tile_map_data = PackedByteArray("AACI/gEAAAABAAAAAACJ/gEAAAABAAAAAACK/gEAAAABAAAAAACH/gEAAAABAAAAAACG/gEAAAABAAAAAACL/gEAAAABAAAAAACM/v7/AAABAAAAAACN/v7/AAABAAAAAACO/v7/AAABAAAAAACP/v7/AAABAAAAAACQ/v7/AAABAAAAAACF/v7/AAABAAAAAACE/v7/AAABAAAAAACD/v7/AAABAAAAAACC/v7/AAABAAAAAACB/v7/AAABAAAAAAA=")
+visible = false
+tile_map_data = PackedByteArray("AACI/gEAAAABAAAAAACJ/gEAAAABAAAAAACK/gEAAAABAAAAAACH/gEAAAABAAAAAACG/gEAAAABAAAAAACL/gEAAAABAAAAAACM/v7/AAABAAAAAACN/v7/AAABAAAAAACO/v7/AAABAAAAAACP/v7/AAABAAAAAACQ/v7/AAABAAAAAACF/v7/AAABAAAAAACE/v7/AAABAAAAAACD/v7/AAABAAAAAACC/v7/AAABAAAAAACB/v7/AAABAAAAAACK/vv/AAABAAAAAACJ/vv/AAABAAAAAACI/vv/AAABAAAAAACM/vj/AAABAAAAAACN/vj/AAABAAAAAACO/vj/AAABAAAAAACP/vj/AAABAAAAAACQ/vj/AAABAAAAAACF/vj/AAABAAAAAACE/vj/AAABAAAAAACD/vj/AAABAAAAAACC/vj/AAABAAAAAACB/vj/AAABAAAAAACH/vv/AAABAAAAAACK/vX/AAABAAAAAACJ/vX/AAABAAAAAACI/vX/AAABAAAAAACH/vX/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_kjvhd")
+
+[node name="digi - 1" type="TileMapLayer" parent="Overworld/sideOn/levelmaps" unique_id=271814992]
+visible = false
+tile_map_data = PackedByteArray("AADo/gEAAQAAAAEAAADo/gIAAQAAAAIAAADo/gMAAQAAAAMAAADp/gEAAQABAAEAAADp/gIAAQABAAIAAADp/gMAAQABAAMAAADq/gEAAQACAAEAAADq/gIAAQACAAIAAADq/gMAAQACAAMAAADr/gEAAQAAAAEAAADr/gIAAQAAAAIAAADr/gMAAQAAAAMAAADs/gEAAQABAAEAAADs/gIAAQABAAIAAADs/gMAAQABAAMAAADt/gEAAQACAAEAAADt/gIAAQACAAIAAADt/gMAAQACAAMAAADu/v//AQAAAAEAAADu/gAAAQAAAAIAAADu/gEAAQAAAAMAAADv/v//AQABAAEAAADv/gAAAQABAAIAAADv/gEAAQABAAMAAADw/v//AQACAAEAAADw/gAAAQACAAIAAADw/gEAAQACAAMAAADl/v//AQAAAAEAAADl/gAAAQAAAAIAAADl/gEAAQAAAAMAAADm/v//AQABAAEAAADm/gAAAQABAAIAAADm/gEAAQABAAMAAADn/v//AQACAAEAAADn/gAAAQACAAIAAADn/gEAAQACAAMAAADr/v7/AQAFAAkAADDq/v7/AQAFAAkAADDs/v7/AQAEAAkAADDp/v7/AQAGAAkAADA=")
+tile_set = ExtResource("14_kjvhd")
 
 [node name="Combat" parent="Overworld/sideOn" unique_id=472120450 instance=ExtResource("1_glv2v")]
 visible = false
@@ -358,5 +365,5 @@ offset_left = -8115.0
 offset_top = 101.0
 offset_right = -2115.0
 offset_bottom = 3601.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 script = ExtResource("17_sc1dx")

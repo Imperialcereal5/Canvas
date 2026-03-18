@@ -23,7 +23,7 @@ func exit(_body):
 	interactible = false
 func interact():
 	side_on.show()
-	await side_on.setup(side_on.zones[0])
+	await side_on.setup(side_on.zones[1])
 	timer = 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
