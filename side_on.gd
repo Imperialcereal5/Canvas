@@ -1,17 +1,45 @@
 extends Node2D
+@onready var fader = $"../fader"
+@onready var cam:Camera2D = $"2dCam"
+@onready var player = $Player
 class Zone:
+	extends Node2D
 	var area:String
 	var maxCoords:Vector2
 	var minCoords:Vector2 
 	var map:TileMapLayer
-	func _init(a:String, max:Vector2, min:Vector2, m:TileMapLayer):
+	var pixelBGFront = preload("res://Background_pixe_frontl.png")
+	var pixelBGBack = preload("res://Background_pixe_back.png")
+	var digiBGFront = preload("res://digiBgFront.png")
+	var digiBGBack = preload("res://digiBgBack.png")
+	var fader: ColorRect
+	
+	func _init(a:String, maxC:Vector2, minC:Vector2, m:TileMapLayer):
 		area = a
-		maxCoords = max
-		minCoords = min
+		maxCoords = maxC
+		minCoords = minC
 		map = m
+		
+func setup(zone):
+	player.position = Vector2(-7500, 0)
+	await fader.fadeIn()
+	print(zone.minCoords)
+	#cam.limit_bottom = int(zone.minCoords.y)
+	cam.minX = int(zone.minCoords.x)
+	#cam.limit_right = int(zone.maxCoords.x)
+	cam.maxX = int(zone.maxCoords.y)
+	if zone.area == "pixel":
+		cam.get_child(0).texture = zone.pixelBGBack
+		cam.get_child(1).texture = zone.pixelBGFront
+		cam.get_child(0).scale = Vector2(3.3, 3.3)
+		cam.get_child(1).scale = Vector2(3.3, 3.3)
+	cam.make_current()
+	fader.position = cam.position + Vector2(-1000, -1000)
+	await fader.fadeOut()
+		
 @onready var levelmaps: Node2D = $levelmaps
 var zones = []
-var coords = []
+var coords = [[-6942, 324, -9076, -324]]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

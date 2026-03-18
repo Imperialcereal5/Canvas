@@ -18,20 +18,16 @@ func enter(body):
 	if body == character_body_2d:
 		interact_dialog.show()
 		interactible = true
-func exit(body):
+func exit(_body):
 	interact_dialog.hide()
 	interactible = false
 func interact():
 	side_on.show()
-	combat.show()
-	_2d_cam.get_child(0).texture = digiBack
-	_2d_cam.get_child(1).texture = digiFront
-	_2d_cam.get_child(0).scale = Vector2(1,1)
-	_2d_cam.get_child(1).scale = Vector2(1,1)
+	await side_on.setup(side_on.zones[0])
 	timer = 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (interactible && Input.is_action_pressed("interact") && timer<=0):
-		interact()
+		await interact()
 	elif timer >0:
 		timer -= delta

@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://bjdcp2bioaoxg" path="res://tiles1.png" id="13_fpfj3"]
 [ext_resource type="Texture2D" uid="uid://c740q5dxj4ijg" path="res://Dummy Test.png" id="14_c2ibq"]
 [ext_resource type="Script" uid="uid://gxtag46iu5ep" path="res://player.gd" id="14_j4qnp"]
-[ext_resource type="Script" uid="uid://bvh22pa6y70op" path="res://fader.gd" id="17_sc1dx"]
 
 [sub_resource type="Theme" id="Theme_r0du0"]
 Panel/styles/panel = ExtResource("2_uu6xs")
@@ -313,7 +312,7 @@ visible = false
 script = ExtResource("9_wkp8b")
 
 [node name="2dCam" type="Camera2D" parent="Overworld/sideOn" unique_id=436418800]
-position = Vector2(-7500, 0)
+position = Vector2(-5483, -153)
 zoom = Vector2(2, 2)
 script = ExtResource("10_c6i3y")
 
@@ -352,11 +351,3 @@ position = Vector2(0, 16.725)
 shape = SubResource("RectangleShape2D_fpfj3")
 target_position = Vector2(0, 0)
 collide_with_areas = true
-
-[node name="fader" type="ColorRect" parent="Overworld" unique_id=827979385]
-offset_left = -7800.0
-offset_top = -175.0
-offset_right = -1800.0
-offset_bottom = 3325.0
-color = Color(0, 0, 0, 1)
-script = ExtResource("17_sc1dx")
