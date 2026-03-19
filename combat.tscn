@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtx5jybuesrgv" path="res://logic.gd" id="1_emiek"]
 [ext_resource type="Theme" uid="uid://dn86y02omkr6x" path="res://textures/button.tres" id="2_mwu64"]
 [ext_resource type="Script" uid="uid://ddxodsa35wg1h" path="res://spells.gd" id="3_3qp1m"]
+[ext_resource type="Texture2D" uid="uid://b5sk4i31pnafk" path="res://IMG_20260317_143025.jpg" id="3_gwxrf"]
 [ext_resource type="Script" uid="uid://cc8hirh87s4mo" path="res://unMagicBtn.gd" id="4_gwxrf"]
 [ext_resource type="Script" uid="uid://don3rhvppm8kh" path="res://magicBtn.gd" id="5_s8h3r"]
 [ext_resource type="Script" uid="uid://cjewl2nhd0w8l" path="res://attack.gd" id="6_bs7xg"]
@@ -32,6 +33,14 @@ offset_right = 577.0
 offset_bottom = 324.0
 theme = ExtResource("2_mwu64")
 script = ExtResource("1_emiek")
+
+[node name="combatCam" type="Camera2D" parent="." unique_id=1694264736]
+position = Vector2(576, 330)
+
+[node name="combatBg" type="Sprite2D" parent="combatCam" unique_id=1593170321]
+position = Vector2(4.000061, -4.9999695)
+scale = Vector2(4, 4)
+texture = ExtResource("3_gwxrf")
 
 [node name="enemySprite" type="Sprite2D" parent="." unique_id=1051472640]
 texture_filter = 3
@@ -409,6 +418,3 @@ offset_bottom = 110.0
 layout_mode = 2
 text = "A very normal die. Rolls from 0 to 20 following the normal distribution"
 autowrap_mode = 2
-
-[node name="combatCam" type="Camera2D" parent="." unique_id=1694264736]
-position = Vector2(576, 330)

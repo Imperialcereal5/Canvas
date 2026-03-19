@@ -10,5 +10,5 @@ func _ready():
 func interact():
 	timer = 10
 	await fader.fadeIn()
-	await combat.encounter(sprite, Vector2(1,1), 20, 50, enemy_stats.attack, "Dummy")
+	await combat.encounter(sprite, Vector2(8,8), 20, 50, enemy_stats.attack, "Dummy")
 	await fader.fadeOut()

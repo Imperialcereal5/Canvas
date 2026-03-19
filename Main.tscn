@@ -407,9 +407,9 @@ target_position = Vector2(0, 0)
 
 [node name="fader" type="ColorRect" parent="Overworld" unique_id=827979385]
 offset_left = -8115.0
-offset_top = 101.0
-offset_right = -2115.0
-offset_bottom = 3601.0
+offset_top = -1000.0
+offset_right = 11885.0
+offset_bottom = 19000.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("17_sc1dx")

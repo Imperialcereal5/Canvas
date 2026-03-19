@@ -36,7 +36,7 @@ func toggleCam():
 	else:
 		_2d_cam.make_current()
 # Called when the node enters the scene tree for the first time.
-func encounter(sprite, scl, hp, mp, ai, name):
+func encounter(sprite, scl, hp, mp, ai, _name):
 	enemy_sprite.texture = sprite
 	enemy_sprite.scale = scl
 	enemy_stats.hp = hp
@@ -44,7 +44,7 @@ func encounter(sprite, scl, hp, mp, ai, name):
 	enemy_stats.mp = mp
 	enemy_stats.maxMp = mp
 	enemy_stats.ai = ai
-	enemy_stats.get_child(2).text = name
+	enemy_stats.get_child(2).text = _name
 	show()
 	
 func _ready() -> void:
@@ -69,7 +69,6 @@ func cycle():
 	else:
 		await fader.fadeIn()
 		hide()
-		_2d_cam.make_current()
 		await fader.fadeOut()
 
 	

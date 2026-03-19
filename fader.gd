@@ -17,4 +17,5 @@ func fadeOut():
 	await tween.tween_property(self, "color", Color(0, 0, 0, 0), 2.0).finished
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = (_2d_cam.position + Vector2(-1000, -1000) if _2d_cam.is_current() else camera_2d.position + Vector2(-1500, -1000)) 
+	#position = (_2d_cam.position + Vector2(-1000, -1000) if _2d_cam.is_current() else camera_2d.position + Vector2(-1500, -1000)) 
+	pass
