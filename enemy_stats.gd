@@ -1,10 +1,15 @@
 extends Panel
 @onready var control: Control = $".."
 @onready var buttons: Panel = $"../buttons"
+@onready var spells: Panel = $"../buttons/Panel"
 @onready var player_stats: Panel = $"../PlayerStats"
+var shader:ShaderMaterial = preload("uid://bq5xm6b6j3cy4")
 @onready var die: Panel = $"../diceUI/enemyDie"
+var ai:Callable = attack
 var hp = 20
+var maxHp = 20
 var mp = 0
+var maxMp = 50
 var roll = 0
 var dmg = 5
 var combo1 = 0
@@ -58,7 +63,7 @@ func haveTurn():
 			await get_tree().create_timer(1.5).timeout
 			roll = int(die.get_child(1).text)
 			updateMP(roll)
-			await act(attack)
+			await act(ai)
 		else:
 			endTurn()
 func endTurn():
@@ -73,23 +78,32 @@ func endTurn():
 		runItBack -= 1
 func updateHP(n):
 	if n < 0 and vulnerable:
+		await hit()
 		hp += 2*n
 		vulnerable -= 1
-	else:
+	elif n < 0:
+		await hit()
 		hp += n
 	if hp > 20:
 		hp = 20
 	elif hp < 0:
 		hp = 0
-	get_child(0).text = "HP: %d/20" % hp
+		control.cycle()
+	get_child(0).text = ("HP: %d/"%hp) + "%d"%maxHp
+	
 func updateMP(n):
 	mp += n
 	if mp > 50:
 		mp = 50
 	elif mp < 0:
 		mp = 0
-	get_child(1).text = "MP: %d/50" % mp
-
+	get_child(1).text = ("MP: %d/" % mp) + "%d" % maxMp
+func hit():
+	var tween = create_tween()
+	await tween.tween_method(func(x): shader.set_shader_parameter("scale", x),0.0, 1.0, 0.1).finished
+	await get_tree().create_timer(0.1).timeout
+	tween = create_tween()
+	await tween.tween_method(func(x): shader.set_shader_parameter("scale", x),1.0, 0.0, 0.1).finished
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

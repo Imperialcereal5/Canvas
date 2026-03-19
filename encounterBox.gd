@@ -1,0 +1,14 @@
+extends "res://box.gd"
+@onready var fader: ColorRect = $"../../../../fader"
+@onready var enemy_stats:Panel = $"../../../Combat/EnemyStats"
+var sprite = preload("res://Dummy Test.png")
+
+func _ready():
+	character_body_2d = $"../../../Player"
+	super()
+	
+func interact():
+	timer = 10
+	await fader.fadeIn()
+	await combat.encounter(sprite, Vector2(1,1), 20, 50, enemy_stats.attack, "Dummy")
+	await fader.fadeOut()

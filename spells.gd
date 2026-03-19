@@ -5,7 +5,7 @@ extends Panel
 
 
 func blastBody():
-	enemy_stats.updateHP(-6)
+	await enemy_stats.updateHP(-6)
 func comboBody():
 	player_stats.combo2 += 1
 func healBody():

@@ -83,13 +83,13 @@ func attack():
 	await die.spinDie(20)
 	roll = int(die.text)
 	if roll == 20:
-		enemy_stats.updateHP(dmg*-2)
+		await enemy_stats.updateHP(dmg*-2)
 	elif roll > 1 and roll < 10:
-		enemy_stats.updateHP(dmg*-0.8)
+		await enemy_stats.updateHP(dmg*-0.8)
 	elif roll > 9 and roll < 15:
-		enemy_stats.updateHP(dmg*-1)
+		await enemy_stats.updateHP(dmg*-1)
 	elif roll != 1:
-		enemy_stats.updateHP(dmg*-1.25)
+		await enemy_stats.updateHP(dmg*-1.25)
 	get_child(2).text = "Roll: %d" % roll
 func updateHP(n):
 	if vulnerable && (n < 0):

@@ -3,6 +3,8 @@ extends Control
 @onready var buttons: Panel = $buttons
 @onready var control: Control = $"."
 @onready var player_stats: Panel = $PlayerStats
+@onready var enemy_sprite: Sprite2D = $enemySprite
+@onready var fader: ColorRect = $"../../fader"
 @onready var _2d_cam: Camera2D = $"../2dCam"	
 var dice: Dictionary
 var playerRoll = 0
@@ -30,11 +32,21 @@ class normalDie:
 func toggleCam():
 	if visible:
 		$combatCam.make_current()
+		print("cam toggled")
 	else:
 		_2d_cam.make_current()
 # Called when the node enters the scene tree for the first time.
-func encounter(sprite, hp, ai):
-	pass
+func encounter(sprite, scl, hp, mp, ai, name):
+	enemy_sprite.texture = sprite
+	enemy_sprite.scale = scl
+	enemy_stats.hp = hp
+	enemy_stats.maxHp = hp
+	enemy_stats.mp = mp
+	enemy_stats.maxMp = mp
+	enemy_stats.ai = ai
+	enemy_stats.get_child(2).text = name
+	show()
+	
 func _ready() -> void:
 	var default = die.new()
 	var coin = coinDie.new()
@@ -45,7 +57,7 @@ func _ready() -> void:
 		"coin": coin,
 		"normal": normal
 	}
-	show()
+	hide()
 	player_stats.haveTurn()
 	#dieSprite.get_parent().pressed.connect(spinDie.bind(20))
 	#get_node("Attack").pressed.connect(updUI)
@@ -55,7 +67,10 @@ func cycle():
 	elif buttons.visible:
 		player_stats.haveTurn()
 	else:
-		get_tree().quit()
+		await fader.fadeIn()
+		hide()
+		_2d_cam.make_current()
+		await fader.fadeOut()
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
