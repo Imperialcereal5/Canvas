@@ -1,8 +1,12 @@
 extends Button
 @onready var label: PanelContainer = $PanelContainer
 @onready var dice: Panel = $"../.."
+@onready var control: Control = $"../../../../.."
 @onready var player_die: Button = $"../../../../playerDie"
-var die = "coin"
+var die = "two":
+	set(die):
+		var d = control.dice[die]
+		
 
 # Called when the node enters the scene tree for the first time.
 func pickDie():

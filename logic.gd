@@ -28,7 +28,14 @@ class normalDie:
 			if t > n or i==20:
 				return i
 		return 0
-	
+class twoDie:
+	func roll() -> int:
+		var n = randi() % 10 + 1
+		return n
+class cursedDie:
+	func roll() -> int:
+		var n = [0, 30][randi()%2]
+		return n
 func toggleCam():
 	if visible:
 		$combatCam.make_current()
@@ -41,12 +48,14 @@ func encounter(sprite, scl, hp, mp, ai, _name):
 	enemy_sprite.scale = scl
 	enemy_stats.hp = hp
 	enemy_stats.maxHp = hp
-	enemy_stats.mp = mp
+	enemy_stats.mp = 0
 	enemy_stats.maxMp = mp
 	enemy_stats.ai = ai
+	player_stats.hp = 20
+	player_stats.mp = 0
 	enemy_stats.get_child(2).text = _name
 	show()
-	
+	player_stats.haveTurn()
 func _ready() -> void:
 	var default = die.new()
 	var coin = coinDie.new()
@@ -55,10 +64,12 @@ func _ready() -> void:
 	dice = {
 		"default": default,
 		"coin": coin,
-		"normal": normal
+		"normal": normal,
+		"two":twoDie.new(),
+		"cursed":cursedDie.new()
 	}
 	hide()
-	player_stats.haveTurn()
+	#player_stats.haveTurn()
 	#dieSprite.get_parent().pressed.connect(spinDie.bind(20))
 	#get_node("Attack").pressed.connect(updUI)
 func cycle():

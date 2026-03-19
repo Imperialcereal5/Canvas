@@ -406,10 +406,10 @@ shape = SubResource("RectangleShape2D_fpfj3")
 target_position = Vector2(0, 0)
 
 [node name="fader" type="ColorRect" parent="Overworld" unique_id=827979385]
-offset_left = -8115.0
-offset_top = -1000.0
-offset_right = 11885.0
-offset_bottom = 19000.0
+offset_left = -10000.0
+offset_top = -5000.0
+offset_right = 10000.0
+offset_bottom = 15000.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("17_sc1dx")

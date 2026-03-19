@@ -25,9 +25,9 @@ var stunned = 0
 var vulnerable = 0
 var weakened = 0
 var active = "default"
-func haveTurn():
+func haveTurn(first:bool=1):
 	buttons.hide() 
-	if !lock.locked:
+	if !lock.locked && first:
 		dice_rect.show()
 		await dice.buttonPressed
 		dice_rect.hide()
@@ -70,7 +70,7 @@ func act(action):
 		await get_tree().create_timer(1.5).timeout
 		if runItBack:
 			runItBack -= 1
-			await haveTurn()
+			await haveTurn(0)
 		else:
 			endTurn()	
 	else:
