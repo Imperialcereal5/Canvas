@@ -13,11 +13,17 @@ class die:
 	func roll() -> int:
 		var n = randi() % 20 + 1
 		return n
+	var sprite = preload("res://d20.png")
+	var desc = "the default die. Rolls from 0 to 20 with a uniform distribution"
 class coinDie:
+	extends die
 	func roll() -> int:
 		var n = [1, 20][randi() %2]
 		return n
+	func _init():
+		desc = "an old coin. Rolls either 1 or 20 with 50/50 odds"
 class normalDie:
+	extends die
 	func roll() -> int:
 		var scale:float = PackedInt32Array([0x407ce0f5]).to_byte_array().to_float32_array()[0]
 		var norm = func(a): return 1.0/scale*(1.0/(sqrt(2.0*PI))*exp((-1.0/2.0)*(((10.5/4.0)-(a/4.0))**2.0)))
@@ -28,14 +34,22 @@ class normalDie:
 			if t > n or i==20:
 				return i
 		return 0
+	func _init():
+		desc = "an very normal die. Rolls from 1 to 20 following a normal distribution"
 class twoDie:
+	extends die
 	func roll() -> int:
 		var n = randi() % 10 + 1
 		return n
+	func _init():
+		desc = "Remnants of stick yaoi. Rolls 1 to 10 but you take 2 turns at a time"
 class cursedDie:
+	extends die
 	func roll() -> int:
 		var n = [0, 30][randi()%2]
 		return n
+	func _init():
+		desc = "the Queen's favourite. Rolls either 0 or 30 with a 50/50 chance"
 func toggleCam():
 	if visible:
 		$combatCam.make_current()

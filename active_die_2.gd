@@ -3,17 +3,18 @@ extends Button
 @onready var dice: Panel = $"../.."
 @onready var control: Control = $"../../../../.."
 @onready var player_die: Button = $"../../../../playerDie"
-var die = "two":
+var die:
 	set(die):
 		var d = control.dice[die]
-		
+		$Sprite2D.texture = d.sprite
+		$PanelContainer/Label.text = d.desc
 
 # Called when the node enters the scene tree for the first time.
 func pickDie():
 	player_die.active = die
 	dice.buttonPressed.emit()
 func _ready() -> void:
-	pass # Replace with function body.
+	die = "two"
 	pressed.connect(pickDie)
 	mouse_entered.connect(label.show)
 	mouse_exited.connect(label.hide)
