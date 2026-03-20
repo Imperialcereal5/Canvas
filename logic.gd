@@ -5,6 +5,7 @@ extends Control
 @onready var player_stats: Panel = $PlayerStats
 @onready var enemy_sprite: Sprite2D = $enemySprite
 @onready var fader: ColorRect = $"../../fader"
+@onready var diceCont: HBoxContainer = $diceUI/DiceRect/Dice/HBoxContainer
 @onready var _2d_cam: Camera2D = $"../2dCam"	
 var dice: Dictionary
 var playerRoll = 0
@@ -68,6 +69,8 @@ func encounter(sprite, scl, hp, mp, ai, _name):
 	player_stats.hp = 20
 	player_stats.mp = 0
 	enemy_stats.get_child(2).text = _name
+	player_stats.updateMP(0); player_stats.updateHP(0)
+	enemy_stats.updateMP(0); enemy_stats.updateHP(0)
 	show()
 	player_stats.haveTurn()
 func _ready() -> void:
@@ -82,6 +85,9 @@ func _ready() -> void:
 		"two":twoDie.new(),
 		"cursed":cursedDie.new()
 	}
+	diceCont.get_child(0).die = "default"
+	diceCont.get_child(1).die = "two"
+	diceCont.get_child(2).die = "normal"
 	hide()
 	#player_stats.haveTurn()
 	#dieSprite.get_parent().pressed.connect(spinDie.bind(20))
@@ -90,11 +96,9 @@ func cycle():
 	if !(buttons.visible) && player_stats.hp > 0 && enemy_stats.hp > 0:
 		await enemy_stats.haveTurn()
 	elif buttons.visible:
-		player_stats.haveTurn()
+		player_stats.haveTurn(1)
 	else:
-		await fader.fadeIn()
-		hide()
-		await fader.fadeOut()
+		pass
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -390,6 +390,7 @@ tile_set = ExtResource("14_kjvhd")
 visible = false
 
 [node name="Player" type="CharacterBody2D" parent="Overworld/sideOn" unique_id=2021273850]
+texture_filter = 3
 position = Vector2(-7500, 0)
 slide_on_ceiling = false
 script = ExtResource("14_j4qnp")

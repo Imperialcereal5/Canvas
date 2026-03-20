@@ -3,8 +3,9 @@ extends Button
 @onready var dice_rect: ColorRect = $"../DiceRect"
 @onready var dice: Panel = $"../DiceRect/Dice"
 @onready var diceContainer: HBoxContainer = $"../DiceRect/Dice/HBoxContainer"
+@onready var player_stats: Panel = $"../../PlayerStats"
 @onready var control: Control = $"../.."
-var active = "default"
+var active
 
 func showPanel():
 	dice_rect.show()
@@ -16,7 +17,7 @@ func showPanel():
 func spinDie(d: int):
 	disabled = true
 	var tween = create_tween()
-	var n = control.dice[active].roll()
+	var n = active.roll()
 	await tween.tween_property(dieSprite, "rotation_degrees", 360.0, 1.0).finished
 	text = str(n)
 	disabled = false

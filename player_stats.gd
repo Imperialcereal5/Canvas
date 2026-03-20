@@ -11,6 +11,7 @@ extends Panel
 @onready var spells: Panel = $"../buttons/Panel"
 @onready var itemBtn: Button = $"../buttons/Item"
 @onready var lock: Button = $"../diceUI/playerDie/lock"
+@onready var player_die: Button = $"../diceUI/playerDie"
 var hp = 20
 var mp = 0
 var roll = 0
@@ -28,9 +29,13 @@ var active = "default"
 func haveTurn(first:bool=1):
 	buttons.hide() 
 	if !lock.locked && first:
+		print("first")
 		dice_rect.show()
 		await dice.buttonPressed
 		dice_rect.hide()
+	if player_die.active == control.dice["two"] && first:
+		runItBack = 1
+		print("running it back")
 	await die.spinDie(20)
 	roll = int(die.text)
 	updateMP(roll)
@@ -55,17 +60,19 @@ func act(action):
 			updateMP(-spells.costs[action])
 		if combo2:
 			await a.call()
-			print("attacked in combo")
 			await get_tree().create_timer(1.5).timeout
-			await a.call()
+			if enemy_stats.hp != 0:
+				await a.call()
 			print("attacked in combo")
 			await get_tree().create_timer(1.5).timeout
 			combo2 -= 1
 		if combo1:
-			await a.call()
+			if enemy_stats.hp != 0:
+				await a.call()
 			await get_tree().create_timer(1.5).timeout
 			combo1 -= 1
-		await a.call()
+		if enemy_stats.hp != 0:
+			await a.call()
 		print("attacked")
 		await get_tree().create_timer(1.5).timeout
 		if runItBack:

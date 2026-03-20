@@ -5,6 +5,8 @@ extends Panel
 @onready var player_stats: Panel = $"../PlayerStats"
 var shader:ShaderMaterial = preload("uid://bq5xm6b6j3cy4")
 @onready var die: Panel = $"../diceUI/enemyDie"
+@onready var fader: ColorRect = $"../../../fader"
+@onready var enemy_stats: Panel = $"."
 var ai:Callable = attack
 var hp = 20
 var maxHp = 20
@@ -86,9 +88,11 @@ func updateHP(n):
 		hp += n
 	if hp > 20:
 		hp = 20
-	elif hp < 0:
+	elif hp <= 0:
 		hp = 0
-		control.cycle()
+		await fader.fadeIn()
+		control.hide()
+		await fader.fadeOut()
 	get_child(0).text = ("HP: %d/"%hp) + "%d"%maxHp
 	
 func updateMP(n):
