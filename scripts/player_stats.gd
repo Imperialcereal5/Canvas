@@ -54,10 +54,13 @@ func haveTurn(first:bool=1):
 		act(passTurn)
 func act(action):
 	buttons.hide()
-	var a = Callable(action)
-	if (action in spells.costs and spells.costs[action] <= mp) or action not in spells.costs:
+	var a
+	if (action in spells.costs and action.cost <= mp) or action not in spells.costs:
 		if action in spells.costs:
-			updateMP(-spells.costs[action])
+			updateMP(-action.cost)
+			a = Callable(action.cast.bind(self, enemy_stats))
+		else:
+			a = Callable(action)
 		if combo2:
 			await a.call()
 			await get_tree().create_timer(1.5).timeout
