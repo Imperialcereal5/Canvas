@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpj03ra7v7moh"]
 
 [ext_resource type="Script" uid="uid://dtx5jybuesrgv" path="res://logic.gd" id="1_emiek"]
-[ext_resource type="Theme" uid="uid://dn86y02omkr6x" path="res://textures/button.tres" id="2_mwu64"]
+[ext_resource type="Theme" uid="uid://bd1tw2mejy8x2" path="res://tradUI.tres" id="1_gwxrf"]
 [ext_resource type="Script" uid="uid://ddxodsa35wg1h" path="res://spells.gd" id="3_3qp1m"]
 [ext_resource type="Texture2D" uid="uid://b5sk4i31pnafk" path="res://IMG_20260317_143025.jpg" id="3_gwxrf"]
 [ext_resource type="Script" path="res://unMagicBtn.gd" id="4_gwxrf"]
@@ -31,7 +31,7 @@ offset_left = -575.0
 offset_top = -325.0
 offset_right = 577.0
 offset_bottom = 324.0
-theme = ExtResource("2_mwu64")
+theme = ExtResource("1_gwxrf")
 script = ExtResource("1_emiek")
 
 [node name="combatCam" type="Camera2D" parent="." unique_id=1694264736]

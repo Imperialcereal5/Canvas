@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var feet: ShapeCast2D = $ShapeCast2D
 var speed = 100
 var jumpPwr = 275
+@onready var combat: Control = $"../Combat"
 @onready var side_on: Node2D = $".."
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func _physics_process(delta:float) -> void:
-	if side_on.visible:
+	if side_on.visible && !combat.visible:
 		var xMotion = 0
 		if feet.is_colliding():
 			if Input.is_action_pressed("jump"):
