@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dn86y02omkr6x"]
 
-[ext_resource type="StyleBox" uid="uid://bypo8djeaas8g" path="res://unpressed.tres" id="1_4oxqy"]
+[ext_resource type="StyleBox" uid="uid://bypo8djeaas8g" path="res://textures/unpressed.tres" id="1_4oxqy"]
 
 [sub_resource type="FontFile" id="FontFile_updu2"]
 cache/0/variation_coordinates = {}

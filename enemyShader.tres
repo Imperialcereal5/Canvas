@@ -1,6 +1,0 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://bq5xm6b6j3cy4"]
-
-[ext_resource type="Shader" uid="uid://uiilgblemsk6" path="res://enemy.gdshader" id="1_oseix"]
-
-[resource]
-shader = ExtResource("1_oseix")
