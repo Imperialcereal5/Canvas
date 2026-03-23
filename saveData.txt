@@ -1,0 +1,8 @@
+in_sideOn=false
+maxHP=20
+maxMP=50
+unlockedDice=default coin normal two cursed
+unlockedSpells=blast
+roomID=0
+equippedDice=default coin normal
+equippedSpells=blast 

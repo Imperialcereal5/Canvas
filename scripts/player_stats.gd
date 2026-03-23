@@ -66,7 +66,6 @@ func act(action):
 			await get_tree().create_timer(1.5).timeout
 			if enemy_stats.hp != 0:
 				await a.call()
-			print("attacked in combo")
 			await get_tree().create_timer(1.5).timeout
 			combo2 -= 1
 		if combo1:
@@ -94,6 +93,10 @@ func attack():
 	roll = int(die.text)
 	if roll == 20:
 		await enemy_stats.updateHP(dmg*-2)
+	elif roll == 30:
+		await enemy_stats.updateHP(dmg*-3)
+	elif roll == 0:
+		await updateHP(dmg*-1)
 	elif roll > 1 and roll < 10:
 		await enemy_stats.updateHP(dmg*-0.8)
 	elif roll > 9 and roll < 15:
