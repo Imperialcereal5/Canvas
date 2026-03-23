@@ -38,8 +38,6 @@ var spellButtons = ["Blast|10", "Combo|20", "Heal|25", "Mana steal|10", "Smite|5
 			b.pressed.connect(player_stats.act.bind(spells[spellButtons[i]]))
 			b.text = spellButtons[i]
 			b.theme = spells[spellButtons[i]].style
-			print("set up button "+ str(i))
-			print("used theme" + spells[spellButtons[i]].style)
 var spells = {
 	"Blast|10": spell.new(10, blastBody, tradTh, "blast"),
 	"Combo|20": spell.new(20, comboBody, tradTh, "combo"),
