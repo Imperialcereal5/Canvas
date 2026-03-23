@@ -1,6 +1,6 @@
 extends Camera2D
-@onready var combat: Control = $"../../Overworld/sideOn/Combat"
-@onready var side_on: Node2D = $"../../Overworld/sideOn"
+@onready var combat: Control = $"../sideOn/Combat"
+@onready var side_on: Node2D = $"../sideOn"
 
 
 # Called when the node enters the scene tree for the first time.

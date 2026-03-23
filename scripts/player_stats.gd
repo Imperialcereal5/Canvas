@@ -13,7 +13,9 @@ extends Panel
 @onready var lock: Button = $"../diceUI/playerDie/lock"
 @onready var player_die: Button = $"../diceUI/playerDie"
 var hp = 20
+var maxHP = 20
 var mp = 0
+var maxMP = 50
 var roll = 0
 var dmg = 5
 var combo1 = 0

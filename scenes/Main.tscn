@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://dh10o7iwh5nbv" path="res://scripts/die_2.gd" id="24_36rkl"]
 [ext_resource type="Script" uid="uid://bcpetcxiukxx2" path="res://scripts/die_3.gd" id="25_fs0b5"]
 [ext_resource type="Script" uid="uid://cc7qvq20skmlw" path="res://scripts/menu_cam.gd" id="28_ma7h6"]
+[ext_resource type="Script" uid="uid://ckq6r0xbnckgu" path="res://scripts/load.gd" id="29_e2s0e"]
 
 [sub_resource type="Theme" id="Theme_r0du0"]
 Panel/styles/panel = ExtResource("1_1nqs0")
@@ -678,6 +679,25 @@ offset_top = 43.0
 offset_right = 78.0
 offset_bottom = 83.0
 
+[node name="menuCam" type="Camera2D" parent="Overworld" unique_id=1674422591]
+position = Vector2(7000, 50)
+scale = Vector2(2, 2)
+script = ExtResource("28_ma7h6")
+
+[node name="MenuBG" type="Sprite2D" parent="Overworld" unique_id=122703911]
+position = Vector2(7000, 50)
+scale = Vector2(6.6, 6.6)
+texture = ExtResource("12_v0vrg")
+
+[node name="load" type="Button" parent="Overworld/MenuBG" unique_id=722790427]
+offset_left = -25.0
+offset_top = -6.0
+offset_right = 174.39355
+offset_bottom = 49.151516
+scale = Vector2(0.25, 0.25)
+text = "Load game"
+script = ExtResource("29_e2s0e")
+
 [node name="fader" type="ColorRect" parent="Overworld" unique_id=827979385]
 offset_left = -10009.0
 offset_top = -4956.0
@@ -686,20 +706,3 @@ offset_bottom = 15044.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("20_cmqll")
-
-[node name="MenuBG" type="Sprite2D" parent="." unique_id=122703911]
-position = Vector2(7000, 50)
-scale = Vector2(6.6, 6.6)
-texture = ExtResource("12_v0vrg")
-
-[node name="menuCam" type="Camera2D" parent="MenuBG" unique_id=1674422591]
-scale = Vector2(0.3030303, 0.3030303)
-script = ExtResource("28_ma7h6")
-
-[node name="load" type="Button" parent="MenuBG" unique_id=722790427]
-offset_left = -25.0
-offset_top = -6.0
-offset_right = 174.39355
-offset_bottom = 49.151516
-scale = Vector2(0.25, 0.25)
-text = "Load game"

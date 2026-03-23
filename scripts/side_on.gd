@@ -2,18 +2,21 @@ extends Node2D
 @onready var fader = $"../fader"
 @onready var cam:Camera2D = $"2dCam"
 @onready var player = $Player
+var activeID = 0
 class Zone:
 	extends Node2D
 	var area:String
 	var maxCoords:Vector2
 	var minCoords:Vector2 
 	var map:TileMapLayer
+	var id:int
 	var pixelBGFront = preload("res://assets/Background_pixe_frontl.png")
 	var pixelBGBack = preload("res://assets/Background_pixe_back.png")
 	var digiBGFront = preload("res://assets/digiBgFront.png")
 	var digiBGBack = preload("res://assets/digiBgBack.png")
 	
-	func _init(a:String, minC:Vector2, maxC:Vector2, m:TileMapLayer):
+	func _init(a:String, minC:Vector2, maxC:Vector2, m:TileMapLayer, i:int):
+		id = i
 		area = a
 		maxCoords = maxC
 		minCoords = minC
@@ -22,6 +25,10 @@ class Zone:
 		map.hide()
 		
 func setup(zone):
+	
+	var cur = zones[activeID]
+	cur.map.collision_enabled = false
+	cur.hide()
 	zone.map.collision_enabled = true
 	zone.map.show()
 	player.position = Vector2(-7500, 0)
@@ -52,11 +59,11 @@ var coords = [[-9076, -10, -6942, 10],[-9076, -10, -6942, 10]]
 func _ready() -> void:
 	for i in range(len(coords)):
 		if i < 1:
-			zones.append(Zone.new("pixel",Vector2(coords[i][0],coords[i][1]),Vector2(coords[i][2],coords[i][3]),levelmaps.get_child(i)))
+			zones.append(Zone.new("pixel",Vector2(coords[i][0],coords[i][1]),Vector2(coords[i][2],coords[i][3]),levelmaps.get_child(i), i))
 		elif i < 20:
-			zones.append(Zone.new("digital",Vector2(coords[i][0],coords[i][1]),Vector2(coords[i][2],coords[i][3]),levelmaps.get_child(i)))
+			zones.append(Zone.new("digital",Vector2(coords[i][0],coords[i][1]),Vector2(coords[i][2],coords[i][3]),levelmaps.get_child(i), i))
 		else:
-			zones.append(Zone.new("trad",Vector2(coords[i][0],coords[i][1]),Vector2(coords[i][2],coords[i][3]),levelmaps.get_child(i)))
+			zones.append(Zone.new("trad",Vector2(coords[i][0],coords[i][1]),Vector2(coords[i][2],coords[i][3]),levelmaps.get_child(i), i))
 		
 
 
