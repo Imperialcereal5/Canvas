@@ -2,10 +2,14 @@ extends Button
 class_name dieSelect
 @onready var inventory: Panel = $"../.."
 @onready var combat: Control = $"../../../../Combat"
+@onready var h_box_container: HBoxContainer = $"../../../../Combat/diceUI/DiceRect/Dice/HBoxContainer"
 @onready var die_pick_win: Panel = $"../../diePickWin"
 var activeDie:
 	set(activeDie):
+		print(activeDie)
 		get_child(1).texture = activeDie.sprite
+		get_child(0).get_child(0).text = activeDie.desc
+		h_box_container.get_child(num).die = activeDie.name
 		
 var num = 0 
 

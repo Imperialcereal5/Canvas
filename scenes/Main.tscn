@@ -24,8 +24,9 @@
 [ext_resource type="Theme" uid="uid://bd1tw2mejy8x2" path="res://textures/tradUI.tres" id="20_yxlcp"]
 [ext_resource type="Script" uid="uid://dmg6gd0fu20li" path="res://scenes/inventory.gd" id="22_36rkl"]
 [ext_resource type="Script" uid="uid://bd6tuqo301t5y" path="res://scenes/dieSelect.gd" id="22_ebg2g"]
-[ext_resource type="Texture2D" uid="uid://4bk1gta1g3v7" path="res://assets/d20.png" id="23_2ofn6"]
 [ext_resource type="Script" uid="uid://bu6df22w7q6c" path="res://scripts/dieSetBox.gd" id="23_xa025"]
+[ext_resource type="Script" uid="uid://dh10o7iwh5nbv" path="res://scripts/die_2.gd" id="24_36rkl"]
+[ext_resource type="Script" uid="uid://bcpetcxiukxx2" path="res://scripts/die_3.gd" id="25_fs0b5"]
 
 [sub_resource type="Theme" id="Theme_r0du0"]
 Panel/styles/panel = ExtResource("1_1nqs0")
@@ -341,6 +342,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_fs0b5")
 
 [node name="sideOn" type="Node2D" parent="Overworld" unique_id=574671401]
+visible = false
 script = ExtResource("10_e2s0e")
 
 [node name="2dCam" type="Camera2D" parent="Overworld/sideOn" unique_id=436418800]
@@ -465,10 +467,13 @@ text = "no die equipped"
 fit_content = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Overworld/sideOn/sideOnMenu/Inventory/VBoxContainer/die1" unique_id=1284579084]
+position = Vector2(37, 32)
+scale = Vector2(0.225, 0.225)
 
 [node name="die2" type="Button" parent="Overworld/sideOn/sideOnMenu/Inventory/VBoxContainer" unique_id=862397588]
 custom_minimum_size = Vector2(66, 66)
 layout_mode = 2
+script = ExtResource("24_36rkl")
 
 [node name="PanelContainer" type="PanelContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/VBoxContainer/die2" unique_id=185441552]
 visible = false
@@ -484,9 +489,14 @@ theme_override_font_sizes/normal_font_size = 12
 text = "no die equipped"
 fit_content = true
 
+[node name="Sprite2D" type="Sprite2D" parent="Overworld/sideOn/sideOnMenu/Inventory/VBoxContainer/die2" unique_id=956966829]
+position = Vector2(37, 32)
+scale = Vector2(0.225, 0.225)
+
 [node name="die3" type="Button" parent="Overworld/sideOn/sideOnMenu/Inventory/VBoxContainer" unique_id=207350524]
 custom_minimum_size = Vector2(66, 66)
 layout_mode = 2
+script = ExtResource("25_fs0b5")
 
 [node name="PanelContainer" type="PanelContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/VBoxContainer/die3" unique_id=1881233163]
 visible = false
@@ -501,6 +511,10 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 12
 text = "no die equipped"
 fit_content = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Overworld/sideOn/sideOnMenu/Inventory/VBoxContainer/die3" unique_id=648809204]
+position = Vector2(37, 32)
+scale = Vector2(0.225, 0.225)
 
 [node name="GridContainer" type="GridContainer" parent="Overworld/sideOn/sideOnMenu/Inventory" unique_id=447287832]
 layout_mode = 0
@@ -632,12 +646,12 @@ offset_right = 240.0
 offset_bottom = 208.0
 columns = 3
 
-[node name="default" type="Button" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer" unique_id=1178660228]
+[node name="none" type="Button" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer" unique_id=1178660228]
 custom_minimum_size = Vector2(66, 66)
 layout_mode = 2
 script = ExtResource("23_xa025")
 
-[node name="PanelContainer" type="PanelContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer/default" unique_id=585706917]
+[node name="PanelContainer" type="PanelContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer/none" unique_id=585706917]
 visible = false
 layout_mode = 0
 offset_left = -120.0
@@ -646,16 +660,15 @@ offset_right = 15.0
 offset_bottom = 99.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer/default/PanelContainer" unique_id=96451132]
+[node name="Label" type="Label" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer/none/PanelContainer" unique_id=96451132]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "The default die. rolls from 1 to 20 with a uniform distribution"
 autowrap_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer/default" unique_id=345995920]
+[node name="Sprite2D" type="Sprite2D" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer/none" unique_id=345995920]
 position = Vector2(32.999992, 31)
 scale = Vector2(0.225, 0.225)
-texture = ExtResource("23_2ofn6")
 
 [node name="Settings" type="Panel" parent="Overworld/sideOn/sideOnMenu" unique_id=956302711]
 layout_mode = 0

@@ -1,5 +1,5 @@
 extends Panel
-@onready var default: Button = $diePickWin/GridContainer/default
+@onready var default: Button = $diePickWin/GridContainer/none
 var selectedDieSlot = 0
 var selectedSpellSlot = 0
 var unlockedDice = []:
@@ -11,6 +11,7 @@ var unlockedDice = []:
 			n.get_child(1).texture = i.sprite
 			text.text = i.desc
 			n.die = i
+			n.linkDie()
 			var childNames = []
 			for j in default.get_parent().get_children():
 				childNames.append(j.name)
