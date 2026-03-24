@@ -5,7 +5,6 @@ var saveFile = "res://saveData.txt"
 @onready var inventory: Panel = $"../../sideOn/sideOnMenu/Inventory"
 @onready var diceContainer: VBoxContainer = $"../../sideOn/sideOnMenu/Inventory/VBoxContainer"
 @onready var camera_2d: Camera2D = $"../../Camera2D"
-@onready var _2d_cam: Camera2D = $"../../sideOn/sideOn/2dCam"
 @onready var menu_cam: Camera2D = $"../../menuCam"
 @onready var side_on: Node2D = $"../../sideOn/"
 
@@ -38,8 +37,8 @@ func loadSave():
 	else:
 		combat.hide()
 		menu_cam.make_current()
+		hide()
 		await side_on.setup(side_on.zones[int(vars["roomID"])])
-	hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
