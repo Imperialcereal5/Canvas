@@ -9,29 +9,42 @@ class spell:
 	var body = print.bind("debug spell")
 	var style = "digital"
 	var _name = "debug"
-	func _init(c, b, s, n):
+	var desc = "debug spell"
+	func _init(c, b, s, n, d):
 		cost = c
 		body = b
 		style = s
 		_name = n
+		desc = d
 	func cast(user, target):
 		body.call(user, target)
 			
-func blastBody(_user, _target):
+func impale(_user, _target):
 	await _target.updateHP(-6)
-func comboBody(_user, _target):
+func bind(_user, _target):
+	_target.weakened += 3
+func erase(_user, _target):
+	_target.stunned += 5
+func feedbackLoop(_user, _target):
 	_user.combo2 += 1
-func healBody(_user, _target):
+func tasty(_user, _target):
 	_user.updateHP(12)
-func manaStealBody(_user, _target):
+func manaSteal(_user, _target):
 	_user.updateMP(15)
 	_target.updateMP(-15)
-func smiteBody(_user, _target):
-	_target.updateHP(-18)
+func toCinders(_user, _target):
+	_target.updateHP(-25)
 func poisonBody(_user, _target):
 	_target.poison += 3
-var spellButtons = ["Blast|10", "Combo|20", "Heal|25", "Mana steal|10", "Smite|50",
-"Poison|10"]:
+func disfigure(_user, _target):
+	_target.poison += 3
+	_target.stunned += 1
+	_target.vulnerable += 3
+	_target.weakened += 3
+	_user.combo2 += 1
+	_user.combo1 += 2
+
+var spellButtons = ["impale"]:
 	set(spellButtons):
 		for i in range(len(spellButtons)):
 			var b:Button = get_node("spell"+str(i+1))
@@ -39,12 +52,13 @@ var spellButtons = ["Blast|10", "Combo|20", "Heal|25", "Mana steal|10", "Smite|5
 			b.text = spellButtons[i]
 			b.theme = spells[spellButtons[i]].style
 var spells = {
-	"Blast|10": spell.new(10, blastBody, tradTh, "blast"),
-	"Combo|20": spell.new(20, comboBody, tradTh, "combo"),
-	"Heal|25": spell.new(25, healBody, tradTh, "heal"),
-	"Mana steal|10": spell.new(10, manaStealBody, tradTh, "blast"),
-	"Smite|50": spell.new(10, smiteBody, tradTh, "blast"),
-	"Poison|10": spell.new(10, poisonBody, debugTh, "blast")
+	"impale": spell.new(10, impale, tradTh, "impale", "Draw spears to impale the enemy. Costs 10 mana."),
+	"tasty": spell.new(25, tasty, tradTh, "tasty!", "Draw some nutritious food. Costs 25 mana"),
+	"bind": spell.new(15, bind, tradTh, "bind", "bind the enemy and weaken them. Costs 15 mana"),
+	"erase": spell.new(50, erase, tradTh, "erase", "When you can't even say my name... Costs 50 mana"),
+	"feedback loop": spell.new(20, feedbackLoop, tradTh, "feedback loop", "It's not a bug, it's a feature. Costs 20 mana."),
+	"disfigure": spell.new(50, disfigure, debugTh, "disfigure", "Arrêter de peindre. Costs 50 mana"),
+	"to cinders": spell.new(50, toCinders, tradTh, "to cinders", "Let it rain down hellfire. Costs 50 mana")
 }
 var costs = {}
 # Called when the node enters the scene tree for the first time.
