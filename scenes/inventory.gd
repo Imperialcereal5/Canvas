@@ -1,5 +1,6 @@
 extends Panel
 @onready var default: Button = $diePickWin/GridContainer/none
+@onready var none: Button = $spellPickWin/ScrollContainer/VBoxContainer/none
 var selectedDieSlot = 0
 var selectedSpellSlot = 0
 var unlockedDice = []:
@@ -17,7 +18,11 @@ var unlockedDice = []:
 				childNames.append(j.name)
 			if i.name not in childNames:
 				default.get_parent().add_child(n)
-var unlockedSpells = []
+var unlockedSpells = []:
+	set(unlockedSpells):
+		for i in unlockedSpells:
+			var n:Button = none.duplicate()
+			var text:Label = n.get_child(0).get_child(0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

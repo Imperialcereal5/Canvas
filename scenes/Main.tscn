@@ -344,7 +344,6 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_fs0b5")
 
 [node name="sideOn" type="Node2D" parent="Overworld" unique_id=574671401]
-visible = false
 script = ExtResource("10_e2s0e")
 
 [node name="2dCam" type="Camera2D" parent="Overworld/sideOn" unique_id=436418800]
@@ -672,6 +671,30 @@ autowrap_mode = 2
 position = Vector2(32.999992, 31)
 scale = Vector2(0.225, 0.225)
 
+[node name="spellPickWin" type="Panel" parent="Overworld/sideOn/sideOnMenu/Inventory" unique_id=865063506]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 1.0
+offset_right = 345.0
+offset_bottom = 216.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin" unique_id=1167443287]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 16.0
+offset_right = 261.0
+offset_bottom = 209.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/ScrollContainer" unique_id=1751428389]
+layout_mode = 2
+
+[node name="none" type="Button" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/ScrollContainer/VBoxContainer" unique_id=146458760]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "<None>"
+autowrap_mode = 2
+
 [node name="Settings" type="Panel" parent="Overworld/sideOn/sideOnMenu" unique_id=956302711]
 layout_mode = 0
 offset_left = 38.0
@@ -699,6 +722,7 @@ text = "Load game"
 script = ExtResource("29_e2s0e")
 
 [node name="fader" type="ColorRect" parent="Overworld" unique_id=827979385]
+visible = false
 offset_left = -10009.0
 offset_top = -4956.0
 offset_right = 9991.0
