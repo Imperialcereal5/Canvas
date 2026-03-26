@@ -1,12 +1,12 @@
 shader_type canvas_item;
 uniform float scale = 0;
-
+uniform vec3 end = vec3(1, -1, -1);
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	COLOR += vec4(scale*vec3(1, -1, -1), COLOR.a);
+	COLOR += vec4(scale*(end-vec3(COLOR.r,COLOR.g,COLOR.b)), COLOR.a);
 }
 
 //void light() {

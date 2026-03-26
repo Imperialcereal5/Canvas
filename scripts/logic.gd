@@ -12,12 +12,14 @@ var dice: Dictionary
 var playerRoll = 0
 var enemyRoll = 0
 class die:
+	var tradTh = preload("uid://bd1tw2mejy8x2")
 	func roll() -> int:
 		var n = randi() % 20 + 1
 		return n
 	var sprite = preload("res://assets/d20.png")
 	var desc = "the default die. Rolls from 0 to 20 with a uniform distribution"
 	var name = "default"
+	var style = tradTh
 class coinDie:
 	extends die
 	func roll() -> int:

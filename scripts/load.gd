@@ -2,6 +2,7 @@ extends Button
 var saveFile = "res://saveData.txt"
 @onready var combat: Control = $"../../sideOn/Combat"
 @onready var player_stats: Panel = combat.get_node("PlayerStats")
+@onready var panel: Panel = combat.get_node("buttons/Panel")
 @onready var inventory: Panel = $"../../sideOn/sideOnMenu/Inventory"
 @onready var diceContainer: VBoxContainer = $"../../sideOn/sideOnMenu/Inventory/VBoxContainer"
 @onready var camera_2d: Camera2D = $"../../Camera2D"
@@ -27,6 +28,12 @@ func loadSave():
 	n = vars["unlockedDice"].split(" ")
 	for i in n:
 		inventory.unlockedDice += [combat.dice[i]]
+	n = vars["unlockedSpells"].split(" ")
+	for i in n:
+		if "/" in i:
+			inventory.unlockedSpells += [panel.spells[" ".join(i.split("/"))]]
+		else:
+			inventory.unlockedSpells += [panel.spells[i]]
 	n = vars["equippedDice"].split(" ")
 	for i in range(3):
 		diceContainer.get_child(i).activeDie = combat.dice[n[i]]

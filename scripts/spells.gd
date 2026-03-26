@@ -45,7 +45,7 @@ func disfigure(_user, _target):
 	_user.combo1 += 2
 func zap(_user, _target):
 	_target.stunned += 1
-	await _target.updateHP(_user.dmg*0.8)
+	await _target.updateHP(_user.dmg*-0.8)
 func daemon(_user, _target):
 	_target.vulnerable += 3
 func rock(_user, _target):
@@ -54,12 +54,16 @@ var spellButtons = ["impale"]:
 	set(spellButtons):
 		for i in range(len(spellButtons)):
 			var b:Button = get_node("spell"+str(i+1))
-			b.pressed.connect(player_stats.act.bind(spells[spellButtons[i]]))
+			if !b.pressed.is_connected(player_stats.act.bind(spells[spellButtons[i]])):
+				b.pressed.connect(player_stats.act.bind(spells[spellButtons[i]]))
+			else:
+				b.pressed.disconnect(player_stats.act)
+				b.pressed.connect(player_stats.act.bind(spells[spellButtons[i]]))
 			b.text = spellButtons[i]
 			b.theme = spells[spellButtons[i]].style
 var spells = {
 	"impale": spell.new(10, impale, tradTh, "impale", "Draw spears to impale the enemy. Costs 10 mana."),
-	"tasty": spell.new(25, tasty, tradTh, "tasty!", "Draw some nutritious food. Costs 25 mana"),
+	"tasty!": spell.new(25, tasty, tradTh, "tasty!", "Draw some nutritious food. Costs 25 mana"),
 	"bind": spell.new(15, bind, tradTh, "bind", "Bind the enemy and weaken them. Costs 15 mana"),
 	"erase": spell.new(50, erase, tradTh, "erase", "When you can't even say my name... Costs 50 mana"),
 	"feedback loop": spell.new(20, feedbackLoop, debugTh, "feedback loop", "It's not a bug, it's a feature. Costs 20 mana."),

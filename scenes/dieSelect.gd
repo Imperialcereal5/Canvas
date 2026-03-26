@@ -10,6 +10,7 @@ var activeDie:
 		get_child(1).texture = activeDie.sprite
 		get_child(0).get_child(0).text = activeDie.desc
 		h_box_container.get_child(num).die = activeDie.name
+		theme = activeDie.style
 		
 var num = 0 
 

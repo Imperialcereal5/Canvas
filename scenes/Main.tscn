@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://bu6df22w7q6c" path="res://scripts/dieSetBox.gd" id="23_xa025"]
 [ext_resource type="Script" uid="uid://dh10o7iwh5nbv" path="res://scripts/die_2.gd" id="24_36rkl"]
 [ext_resource type="Script" uid="uid://bcpetcxiukxx2" path="res://scripts/die_3.gd" id="25_fs0b5"]
+[ext_resource type="Script" uid="uid://btole1sjl23us" path="res://scripts/spellSelect.gd" id="26_v0vrg"]
 [ext_resource type="Script" uid="uid://bwmgiktfsil5u" path="res://scripts/spellSet.gd" id="27_gsxep"]
 [ext_resource type="Script" uid="uid://cc7qvq20skmlw" path="res://scripts/menu_cam.gd" id="28_ma7h6"]
 [ext_resource type="Script" uid="uid://ckq6r0xbnckgu" path="res://scripts/load.gd" id="29_e2s0e"]
@@ -529,6 +530,7 @@ columns = 2
 [node name="spell1" type="Button" parent="Overworld/sideOn/sideOnMenu/Inventory/GridContainer" unique_id=34569787]
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
+script = ExtResource("26_v0vrg")
 
 [node name="PanelContainer" type="PanelContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/GridContainer/spell1" unique_id=214627298]
 visible = false
@@ -654,6 +656,7 @@ layout_mode = 2
 script = ExtResource("23_xa025")
 
 [node name="PanelContainer" type="PanelContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/diePickWin/GridContainer/none" unique_id=585706917]
+visible = false
 layout_mode = 0
 offset_left = -120.0
 offset_top = -2.0
@@ -672,27 +675,27 @@ position = Vector2(32.999992, 31)
 scale = Vector2(0.225, 0.225)
 
 [node name="spellPickWin" type="Panel" parent="Overworld/sideOn/sideOnMenu/Inventory" unique_id=865063506]
+visible = false
 layout_mode = 0
 offset_left = 238.0
 offset_top = 1.0
 offset_right = 345.0
 offset_bottom = 216.0
 
-[node name="VScrollBar" type="VScrollBar" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin" unique_id=1164441413]
+[node name="ScrollContainer" type="ScrollContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin" unique_id=1289183369]
+layout_direction = 3
 layout_mode = 0
-offset_left = 93.0
-offset_top = 6.0
-offset_right = 101.0
-offset_bottom = 205.0
+offset_left = -105.0
+offset_top = 3.0
+offset_right = 100.0
+offset_bottom = 206.0
+horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin" unique_id=1751428389]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 98.0
-offset_bottom = 58.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/ScrollContainer" unique_id=1751428389]
+layout_direction = 2
+layout_mode = 2
 
-[node name="none" type="Button" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/VBoxContainer" unique_id=146458760]
+[node name="none" type="Button" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/ScrollContainer/VBoxContainer" unique_id=146458760]
 custom_minimum_size = Vector2(90, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
@@ -700,14 +703,15 @@ text = "<None>"
 autowrap_mode = 2
 script = ExtResource("27_gsxep")
 
-[node name="PanelContainer" type="PanelContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/VBoxContainer/none" unique_id=200884093]
+[node name="PanelContainer" type="PanelContainer" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/ScrollContainer/VBoxContainer/none" unique_id=200884093]
+visible = false
 layout_mode = 0
 offset_left = 75.0
 offset_top = -5.0
 offset_right = 195.0
 offset_bottom = 56.0
 
-[node name="Label" type="Label" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/VBoxContainer/none/PanelContainer" unique_id=62967586]
+[node name="Label" type="Label" parent="Overworld/sideOn/sideOnMenu/Inventory/spellPickWin/ScrollContainer/VBoxContainer/none/PanelContainer" unique_id=62967586]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
@@ -741,7 +745,6 @@ text = "Load game"
 script = ExtResource("29_e2s0e")
 
 [node name="fader" type="ColorRect" parent="Overworld" unique_id=827979385]
-visible = false
 offset_left = -10009.0
 offset_top = -4956.0
 offset_right = 9991.0

@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://dxvugncchbtgq" path="res://scripts/active_die_3.gd" id="19_rdcqr"]
 [ext_resource type="Material" uid="uid://bq5xm6b6j3cy4" path="res://textures/enemyShader.tres" id="20_3qp1m"]
 [ext_resource type="Texture2D" uid="uid://c740q5dxj4ijg" path="res://assets/Dummy Test.png" id="20_mwu64"]
+[ext_resource type="Script" uid="uid://wld0vtd6xbkc" path="res://scripts/hitOverlay.gd" id="23_tx6c6"]
 
 [node name="Control" type="Control" unique_id=472120450]
 texture_filter = 3
@@ -418,3 +419,11 @@ offset_bottom = 110.0
 layout_mode = 2
 text = "A very normal die. Rolls from 0 to 20 following the normal distribution"
 autowrap_mode = 2
+
+[node name="hitOverlay" type="ColorRect" parent="diceUI" unique_id=724142342]
+layout_mode = 0
+offset_left = -64.0
+offset_right = 1217.0
+offset_bottom = 670.0
+mouse_filter = 2
+script = ExtResource("23_tx6c6")

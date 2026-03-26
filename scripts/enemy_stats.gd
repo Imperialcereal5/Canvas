@@ -51,22 +51,23 @@ func act(action):
 	endTurn()	
 func haveTurn():
 	for i in range(runItBack+1):
-		await die.spinDie(20)
+		if poison:
+			poison -= 1
+			updateHP(-2)
+		if regen:
+			updateHP(2)
+			regen -= 1
+		if manaRegen:
+			updateMP(5)
+			manaRegen -= 1
 		if !stunned:
-			if poison:
-				poison -= 1
-				updateHP(-2)
-			if regen:
-				updateHP(2)
-				regen -= 1
-			if manaRegen:
-				updateMP(5)
-				manaRegen -= 1
+			await die.spinDie(20)
 			await get_tree().create_timer(1.5).timeout
 			roll = int(die.get_child(1).text)
 			updateMP(roll)
 			await act(ai)
 		else:
+			print("stunned")
 			endTurn()
 func endTurn():
 	if weakened:
@@ -80,11 +81,11 @@ func endTurn():
 		runItBack -= 1
 func updateHP(n):
 	if n < 0 and vulnerable:
-		await hit()
+		await overlay(Color(1, 0, 0))
 		hp += 2*n
 		vulnerable -= 1
 	elif n < 0:
-		await hit()
+		await overlay(Color(1, 0, 0))
 		hp += n
 	if hp > 20:
 		hp = 20
@@ -102,7 +103,8 @@ func updateMP(n):
 	elif mp < 0:
 		mp = 0
 	get_child(1).text = ("MP: %d/" % mp) + "%d" % maxMp
-func hit():
+func overlay(clr):
+	shader.set_shader_parameter("end", clr)
 	var tween = create_tween()
 	await tween.tween_method(func(x): shader.set_shader_parameter("scale", x),0.0, 1.0, 0.1).finished
 	await get_tree().create_timer(0.1).timeout

@@ -11,6 +11,7 @@ extends Panel
 @onready var spells: Panel = $"../buttons/Panel"
 @onready var itemBtn: Button = $"../buttons/Item"
 @onready var lock: Button = $"../diceUI/playerDie/lock"
+@onready var hit_overlay: ColorRect = $"../diceUI/hitOverlay"
 @onready var player_die: Button = $"../diceUI/playerDie"
 var hp = 20
 var maxHP = 20
@@ -60,7 +61,7 @@ func act(action):
 	if (action in spells.costs and action.cost <= mp) or action not in spells.costs:
 		if action in spells.costs:
 			updateMP(-action.cost)
-			a = Callable(action.cast.bind(self, enemy_stats))
+			a = Callable(action.body.bind(self, enemy_stats))
 		else:
 			a = Callable(action)
 		if combo2:
@@ -110,12 +111,14 @@ func updateHP(n):
 	if vulnerable && (n < 0):
 		vulnerable -= 1
 		hp += n
+	if n < 0:
+		hit_overlay.overlay(Color(1, 0, 0))
 	hp += n
 	if hp > 20:
 		hp = 20
 	elif hp < 0:
 		hp = 0
-	get_child(0).text = "HP: %d/20" % hp
+	get_child(0).text = ("HP: %d"%hp)  + "/%d" % maxHP
 func updateMP(n):
 	mp += n
 	if mp > 50:
