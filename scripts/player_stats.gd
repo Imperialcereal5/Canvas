@@ -2,7 +2,6 @@ extends Panel
 @onready var buttons: Panel = $"../buttons"
 @onready var control: Control = $".."
 @onready var attackBtn: Button = $"../buttons/Attack"
-@onready var die: Button = $"../diceUI/playerDie"
 @onready var dice_rect: ColorRect = $"../diceUI/DiceRect"
 @onready var enemy_stats: Panel = $"../EnemyStats"
 @onready var items: Panel = $"../Items"
@@ -39,8 +38,8 @@ func haveTurn(first:bool=1):
 	if player_die.active == control.dice["two"] && first:
 		runItBack = 1
 		print("running it back")
-	await die.spinDie(20)
-	roll = int(die.text)
+	await player_die.spinDie(20)
+	roll = int(player_die.text)
 	updateMP(roll)
 	if manaRegen:
 		manaRegen -= 1
@@ -92,8 +91,8 @@ func endTurn():
 		weakened -= 1
 	control.cycle()
 func attack():
-	await die.spinDie(20)
-	roll = int(die.text)
+	await player_die.spinDie(20)
+	roll = int(player_die.text)
 	if roll == 20:
 		await enemy_stats.updateHP(dmg*-2)
 	elif roll == 30:

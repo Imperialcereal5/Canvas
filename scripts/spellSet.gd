@@ -11,5 +11,5 @@ func linkSpell():
 	pressed.connect(func(): grid_container.get_child(inventory.selectedSpellSlot).activeSpell = spell)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://cl8ukh3u5138o"]
+
+[ext_resource type="StyleBox" uid="uid://djv48na875vmu" path="res://textures/digiSB.tres" id="1_nwtrr"]
+
+[resource]
+Button/styles/normal = ExtResource("1_nwtrr")
+Panel/styles/panel = ExtResource("1_nwtrr")
+PanelContainer/styles/panel = ExtResource("1_nwtrr")

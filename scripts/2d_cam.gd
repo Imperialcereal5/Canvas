@@ -13,7 +13,7 @@ func _ready() -> void:
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	position.x = clamp(player.position.x, minX, maxX)
 	position.y = clamp(player.position.y,minY,maxY)
 	bg_front.position.x = -(1.0/4.0)*(position - initPos).x

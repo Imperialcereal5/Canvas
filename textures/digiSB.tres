@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://djv48na875vmu"]
+
+[ext_resource type="Texture2D" uid="uid://barmvdnm8qrae" path="res://assets/digiBoxSmol.png" id="1_a8jgc"]
+
+[resource]
+texture = ExtResource("1_a8jgc")
+texture_margin_left = 5.0189524
+texture_margin_top = 4.3649206
+texture_margin_right = 4.8554444
+texture_margin_bottom = 3.9963827
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0.97099686, 0, 92.907135, 95.78706)

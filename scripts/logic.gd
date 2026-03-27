@@ -13,6 +13,8 @@ var playerRoll = 0
 var enemyRoll = 0
 class die:
 	var tradTh = preload("uid://bd1tw2mejy8x2")
+	var digiTh = preload("uid://cl8ukh3u5138o")
+	var pixelTh = preload("uid://0d3wdme6mbon")
 	func roll() -> int:
 		var n = randi() % 20 + 1
 		return n
@@ -28,6 +30,7 @@ class coinDie:
 	func _init():
 		desc = "an old coin. Rolls either 1 or 20 with 50/50 odds"
 		name = "coin"
+		style = digiTh
 class normalDie:
 	extends die
 	func roll() -> int:
@@ -43,6 +46,7 @@ class normalDie:
 	func _init():
 		desc = "a very normal die. Rolls from 1 to 20 following a normal distribution"
 		name = "normal"
+		style = pixelTh
 class twoDie:
 	extends die
 	func roll() -> int:
@@ -51,6 +55,7 @@ class twoDie:
 	func _init():
 		desc = "Remnants of stick yaoi. Rolls 1 to 10 but you take 2 turns at a time"
 		name = "two"
+		style = pixelTh
 class cursedDie:
 	extends die
 	func roll() -> int:
@@ -112,5 +117,5 @@ func cycle():
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

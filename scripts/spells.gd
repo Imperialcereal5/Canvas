@@ -50,17 +50,24 @@ func daemon(_user, _target):
 	_target.vulnerable += 3
 func rock(_user, _target):
 	await _target.updateHP(_user.dmg*-2)
-var spellButtons = ["impale"]:
+var spellButtons = ["impale", "none", "none", "none", "none", "none"]:
 	set(spellButtons):
 		for i in range(len(spellButtons)):
 			var b:Button = get_node("spell"+str(i+1))
-			if !b.pressed.is_connected(player_stats.act.bind(spells[spellButtons[i]])):
-				b.pressed.connect(player_stats.act.bind(spells[spellButtons[i]]))
+			if spellButtons[i] != "none":
+				if !b.pressed.is_connected(player_stats.act.bind(spells[spellButtons[i]])):
+					b.pressed.connect(player_stats.act.bind(spells[spellButtons[i]]))
+				else:
+					b.pressed.disconnect(player_stats.act)
+					b.pressed.connect(player_stats.act.bind(spells[spellButtons[i]]))
+				b.text = spellButtons[i]
+				b.theme = spells[spellButtons[i]].style
 			else:
-				b.pressed.disconnect(player_stats.act)
-				b.pressed.connect(player_stats.act.bind(spells[spellButtons[i]]))
-			b.text = spellButtons[i]
-			b.theme = spells[spellButtons[i]].style
+				b.theme = theme
+				if b.pressed.is_connected(player_stats.act):
+					b.pressed.disconnect(player_stats.act)
+				b.text = "no spell equipped"
+				
 var spells = {
 	"impale": spell.new(10, impale, tradTh, "impale", "Draw spears to impale the enemy. Costs 10 mana."),
 	"tasty!": spell.new(25, tasty, tradTh, "tasty!", "Draw some nutritious food. Costs 25 mana"),
@@ -72,7 +79,7 @@ var spells = {
 	"disfigure": spell.new(50, disfigure, debugTh, "disfigure", "Arrêter de peindre. Costs 50 mana"),
 	"graviturgy": spell.new(20, rock, debugTh, "graviturgy", "Conjure a rock and hurl it at the enemy. Costs 20 mana."),
 	"envenom": spell.new(10, poisonBody, debugTh, "envenom", "Inflict your enemy with poison. Costs 10 mana"),
-	"mana siphon": spell.new(15, manaSteal, debugTh, "mana siphom", "What was yours is now mine. Costs 15 mana"),
+	"mana siphon": spell.new(15, manaSteal, debugTh, "mana siphon", "What was yours is now mine. Costs 15 mana"),
 	"to cinders": spell.new(50, toCinders, tradTh, "to cinders", "Let it rain down hellfire. Costs 50 mana")
 }
 var costs = {}
@@ -82,5 +89,5 @@ func _ready() -> void:
 		costs[spells[i]] = spells[i].cost
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

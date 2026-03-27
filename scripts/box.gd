@@ -2,7 +2,7 @@ extends StaticBody2D
 class_name Box
 @onready var area_2d: Area2D = $Area2D
 @onready var interact_dialog: Sprite2D = $interactDialog
-@onready var _2d_cam: Camera2D = $"/root/Node2D/Overworld/sideOn/2dCam"
+#@onready var _2d_cam: Camera2D = $"/root/Node2D/Overworld/sideOn/2dCam"
 @onready var combat: Control = $"/root/Node2D/Overworld/sideOn/Combat"
 @onready var side_on: Node2D = $"/root/Node2D/Overworld/sideOn"
 const digiBack = preload("uid://crijirqngrp4m")

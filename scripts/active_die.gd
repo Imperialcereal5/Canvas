@@ -5,7 +5,6 @@ extends Button
 @onready var player_die: Button = $"../../../../playerDie"
 var die:
 	set(die):
-		print(die)
 		var d = control.dice[die]
 		$Sprite2D.texture = d.sprite
 		$PanelContainer/Label.text = d.desc
@@ -13,6 +12,7 @@ var die:
 		if pressed.is_connected(pickDie.bind(die)):
 			pressed.disconnect(pickDie.bind(die))
 		pressed.connect(pickDie.bind(die))
+		theme = d.style
 
 # Called when the node enters the scene tree for the first time.
 func pickDie(_die):

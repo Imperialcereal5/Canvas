@@ -5,7 +5,10 @@ extends Button
 @onready var diceContainer: HBoxContainer = $"../DiceRect/Dice/HBoxContainer"
 @onready var player_stats: Panel = $"../../PlayerStats"
 @onready var control: Control = $"../.."
-var active
+var active#:
+"""set(active):
+		theme = active.style
+		get_child(0).texture = active.sprite"""
 
 func showPanel():
 	dice_rect.show()

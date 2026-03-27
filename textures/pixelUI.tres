@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://0d3wdme6mbon"]
+
+[ext_resource type="StyleBox" uid="uid://ctjh8i40p4the" path="res://textures/pixelSB.tres" id="1_iu1ob"]
+
+[resource]
+Button/styles/normal = ExtResource("1_iu1ob")
+Panel/styles/panel = ExtResource("1_iu1ob")
+PanelContainer/styles/panel = ExtResource("1_iu1ob")
