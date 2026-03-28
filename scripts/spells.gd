@@ -69,6 +69,7 @@ var spellButtons = ["impale", "none", "none", "none", "none", "none"]:
 				b.text = "no spell equipped"
 				
 var spells = {
+	"none": spell.new(100000, print.bind("congratulations, something broke!"), debugTh, "none", "no spell equipped"),
 	"impale": spell.new(10, impale, tradTh, "impale", "Draw spears to impale the enemy. Costs 10 mana."),
 	"tasty!": spell.new(25, tasty, tradTh, "tasty!", "Draw some nutritious food. Costs 25 mana"),
 	"bind": spell.new(15, bind, tradTh, "bind", "Bind the enemy and weaken them. Costs 15 mana"),

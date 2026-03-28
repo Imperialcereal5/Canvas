@@ -18,10 +18,10 @@
 [ext_resource type="Script" uid="uid://daasp11xcksq1" path="res://scripts/encounterBox.gd" id="15_2c4at"]
 [ext_resource type="TileSet" uid="uid://c6gyu0oacg6uj" path="res://tilemaps/digiSet.tres" id="16_g6wdg"]
 [ext_resource type="PackedScene" uid="uid://dpj03ra7v7moh" path="res://scenes/combat.tscn" id="17_hq6as"]
+[ext_resource type="Theme" uid="uid://0d3wdme6mbon" path="res://textures/pixelUI.tres" id="18_hq6as"]
 [ext_resource type="Script" uid="uid://gxtag46iu5ep" path="res://scripts/player.gd" id="18_kxyth"]
 [ext_resource type="Texture2D" uid="uid://c740q5dxj4ijg" path="res://assets/Dummy Test.png" id="19_cobve"]
 [ext_resource type="Script" uid="uid://bvh22pa6y70op" path="res://scripts/fader.gd" id="20_cmqll"]
-[ext_resource type="Theme" uid="uid://cl8ukh3u5138o" path="res://textures/digiUI.tres" id="20_dg70y"]
 [ext_resource type="Script" uid="uid://dmg6gd0fu20li" path="res://scenes/inventory.gd" id="22_36rkl"]
 [ext_resource type="Script" uid="uid://bd6tuqo301t5y" path="res://scenes/dieSelect.gd" id="22_ebg2g"]
 [ext_resource type="Script" uid="uid://bu6df22w7q6c" path="res://scripts/dieSetBox.gd" id="23_xa025"]
@@ -404,6 +404,7 @@ tile_set = ExtResource("16_g6wdg")
 
 [node name="Combat" parent="Overworld/sideOn" unique_id=472120450 instance=ExtResource("17_hq6as")]
 visible = false
+theme = ExtResource("18_hq6as")
 
 [node name="Player" type="CharacterBody2D" parent="Overworld/sideOn" unique_id=2021273850]
 texture_filter = 3
@@ -429,7 +430,7 @@ offset_left = -7806.0
 offset_top = -195.0
 offset_right = -7178.0
 offset_bottom = 195.0
-theme = ExtResource("20_dg70y")
+theme = ExtResource("18_hq6as")
 script = ExtResource("14_1iba3")
 
 [node name="ColorRect" type="ColorRect" parent="Overworld/sideOn/sideOnMenu" unique_id=2010797375]

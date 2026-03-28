@@ -30,7 +30,7 @@ var unlockedSpells = []:
 			n.get_child(0).get_child(0).text = i.desc
 			var childNames = []
 			n.spell = i
-			n.linkSpell()
+			n.linkSpell(i)
 			for j in none.get_parent().get_children():
 				childNames.append(j.name)
 			if i._name not in childNames:
@@ -38,7 +38,7 @@ var unlockedSpells = []:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	none.linkSpell(none.spell)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

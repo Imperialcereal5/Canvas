@@ -426,4 +426,5 @@ offset_left = -64.0
 offset_right = 1217.0
 offset_bottom = 670.0
 mouse_filter = 2
+color = Color(1, 1, 1, 0)
 script = ExtResource("23_tx6c6")

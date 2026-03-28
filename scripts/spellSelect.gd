@@ -6,13 +6,17 @@ class_name spell_select
 var num = 0
 var activeSpell:
 	set(activeSpell):
-		text = activeSpell._name
 		var n:RichTextLabel = get_child(0).get_child(0)
+		n.text = activeSpell.desc
+		if activeSpell._name != "none":
+			text = activeSpell._name
+			theme = activeSpell.style
+		else:
+			theme = inventory.theme
+			text = "<none>"
 		var temp = panel.spellButtons
 		temp[num] = activeSpell._name
 		panel.spellButtons = temp
-		theme = activeSpell.style
-		n.text = activeSpell.desc
 		
 func toggle():
 	if spell_pick_win.visible && inventory.selectedSpellSlot == num:

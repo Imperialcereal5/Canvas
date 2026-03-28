@@ -18,6 +18,8 @@ var die:
 # Called when the node enters the scene tree for the first time.
 func pickDie(_die):
 	player_die.active = control.dice[_die]
+	player_die.theme = control.dice[_die].style
+	player_die.get_child(0).texture = control.dice[_die].sprite
 	dice.buttonPressed.emit()
 func _ready() -> void:
 	await control.ready

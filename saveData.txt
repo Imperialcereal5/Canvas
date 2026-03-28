@@ -5,4 +5,4 @@ unlockedDice=default coin normal two cursed
 unlockedSpells=impale erase zap disfigure to/cinders mana/siphon
 roomID=0
 equippedDice=normal coin two
-equippedSpells=impale erase tasty!
+equippedSpells=impale erase tasty! none none none

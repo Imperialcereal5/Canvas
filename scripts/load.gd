@@ -5,6 +5,7 @@ var saveFile = "res://saveData.txt"
 @onready var panel: Panel = combat.get_node("buttons/Panel")
 @onready var inventory: Panel = $"../../sideOn/sideOnMenu/Inventory"
 @onready var diceContainer: VBoxContainer = $"../../sideOn/sideOnMenu/Inventory/VBoxContainer"
+@onready var spellContainer: GridContainer = $"../../sideOn/sideOnMenu/Inventory/GridContainer"
 @onready var camera_2d: Camera2D = $"../../Camera2D"
 @onready var menu_cam: Camera2D = $"../../menuCam"
 @onready var side_on: Node2D = $"../../sideOn/"
@@ -34,6 +35,14 @@ func loadSave():
 			inventory.unlockedSpells += [panel.spells[" ".join(i.split("/"))]]
 		else:
 			inventory.unlockedSpells += [panel.spells[i]]
+	n = vars["equippedSpells"].split(" ")
+	var temp = []
+	for i in range(6):
+		if "/" in n[i]:
+			spellContainer.get_child(i).activeSpell = panel.spells[" ".join(n[i].split("/"))]
+		else:
+			spellContainer.get_child(i).activeSpell = panel.spells[n[i]]
+		panel.spellButtons = temp
 	n = vars["equippedDice"].split(" ")
 	for i in range(3):
 		diceContainer.get_child(i).activeDie = combat.dice[n[i]]
