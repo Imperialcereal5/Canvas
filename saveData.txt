@@ -6,3 +6,4 @@ unlockedSpells=impale erase zap disfigure to/cinders mana/siphon
 roomID=0
 equippedDice=normal coin two
 equippedSpells=impale erase tasty! none none none
+unlockedItems=mayo

@@ -125,6 +125,8 @@ func updateMP(n):
 	elif mp < 0:
 		mp = 0
 	get_child(1).text = "MP: %d/50" % mp
+func overlay(clr, hold=0.1):
+	hit_overlay.overlay(clr, hold)
 func passTurn():
 	pass
 func toggleItem():

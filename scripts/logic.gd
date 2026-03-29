@@ -7,6 +7,7 @@ extends Control
 @onready var fader: ColorRect = $"../../fader"
 @onready var diceCont: HBoxContainer = $diceUI/DiceRect/Dice/HBoxContainer
 @onready var inventory: Panel = $"../sideOnMenu/Inventory"
+@onready var enemy_die: Panel = $diceUI/enemyDie
 @onready var _2d_cam: Camera2D = $"../2dCam"	
 var dice: Dictionary
 var playerRoll = 0
@@ -71,17 +72,18 @@ func toggleCam():
 	else:
 		_2d_cam.make_current()
 # Called when the node enters the scene tree for the first time.
-func encounter(sprite, scl, hp, mp, ai, _name):
+func encounter(sprite, scl, hp, mp, ai, _name, _die="default"):
 	enemy_sprite.texture = sprite
 	enemy_sprite.scale = scl
-	enemy_stats.hp = hp
 	enemy_stats.maxHp = hp
+	enemy_stats.hp = hp
 	enemy_stats.mp = 0
 	enemy_stats.maxMp = mp
 	enemy_stats.ai = ai
-	player_stats.hp = 20
-	player_stats.mp = 0
+	player_stats.hp = player_stats.maxHP
+	player_stats.mp = player_stats.maxMP
 	enemy_stats.get_child(2).text = _name
+	enemy_die.active = _die
 	player_stats.updateMP(0); player_stats.updateHP(0)
 	enemy_stats.updateMP(0); enemy_stats.updateHP(0)
 	show()

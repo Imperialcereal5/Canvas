@@ -6,22 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://b5sk4i31pnafk" path="res://assets/IMG_20260317_143025.jpg" id="3_gwxrf"]
 [ext_resource type="Script" uid="uid://cc8hirh87s4mo" path="res://scripts/unMagicBtn.gd" id="4_gwxrf"]
 [ext_resource type="Script" uid="uid://don3rhvppm8kh" path="res://scripts/magicBtn.gd" id="5_s8h3r"]
+[ext_resource type="Texture2D" uid="uid://cv7qdmgv3oywq" path="res://assets/Pixel_Dragon_Boss.png" id="5_tx6c6"]
 [ext_resource type="Script" uid="uid://cjewl2nhd0w8l" path="res://scripts/attack.gd" id="6_bs7xg"]
 [ext_resource type="Script" uid="uid://c3l038jg5txyh" path="res://scripts/player_stats.gd" id="7_psfgy"]
 [ext_resource type="Script" uid="uid://cflcoa0s80yy8" path="res://scripts/enemy_stats.gd" id="8_ep83l"]
 [ext_resource type="Script" uid="uid://in1satp5cyf8" path="res://scripts/items.gd" id="9_bshfd"]
 [ext_resource type="Script" uid="uid://bd3qwidtkenam" path="res://scripts/itemBtn.gd" id="10_gmpjy"]
 [ext_resource type="Script" uid="uid://bbkk2mye3ikyd" path="res://scripts/diceOpen.gd" id="11_f0o7t"]
+[ext_resource type="Script" uid="uid://ujq8s1yxkk3f" path="res://scenes/statuses.gd" id="12_fjou6"]
 [ext_resource type="Texture2D" uid="uid://4bk1gta1g3v7" path="res://assets/d20.png" id="12_tqlj7"]
+[ext_resource type="Texture2D" uid="uid://d4a8kdoylglt0" path="res://assets/statusIcons/Orb.png" id="13_454rk"]
 [ext_resource type="Script" uid="uid://cpfxtehjckg5n" path="res://scripts/lock.gd" id="13_eax3p"]
 [ext_resource type="Texture2D" uid="uid://b0ldtb52o14t2" path="res://assets/unlocked.png" id="14_spmlv"]
 [ext_resource type="Script" uid="uid://b3noy7u1nip7b" path="res://scripts/enemy_die.gd" id="15_8x2sr"]
+[ext_resource type="Script" uid="uid://1xbn2dw81o53" path="res://scripts/control.gd" id="15_fjou6"]
 [ext_resource type="Script" uid="uid://b26mqfsahaovy" path="res://scripts/dice.gd" id="16_i5m17"]
 [ext_resource type="Script" uid="uid://1qyu67jgk0j4" path="res://scripts/active_die.gd" id="17_d3edh"]
 [ext_resource type="Script" uid="uid://bbtg3g06iuxjy" path="res://scripts/active_die_2.gd" id="18_u1lqs"]
 [ext_resource type="Script" uid="uid://dxvugncchbtgq" path="res://scripts/active_die_3.gd" id="19_rdcqr"]
 [ext_resource type="Material" uid="uid://bq5xm6b6j3cy4" path="res://textures/enemyShader.tres" id="20_3qp1m"]
-[ext_resource type="Texture2D" uid="uid://c740q5dxj4ijg" path="res://assets/Dummy Test.png" id="20_mwu64"]
 [ext_resource type="Script" uid="uid://wld0vtd6xbkc" path="res://scripts/hitOverlay.gd" id="23_tx6c6"]
 
 [node name="Control" type="Control" unique_id=472120450]
@@ -47,8 +50,8 @@ texture = ExtResource("3_gwxrf")
 texture_filter = 3
 material = ExtResource("20_3qp1m")
 position = Vector2(574, 283)
-scale = Vector2(8.03, 8)
-texture = ExtResource("20_mwu64")
+scale = Vector2(3, 2.988)
+texture = ExtResource("5_tx6c6")
 
 [node name="buttons" type="Panel" parent="." unique_id=2108101280]
 layout_mode = 0
@@ -236,6 +239,40 @@ text = "Dummy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Statuses" type="Panel" parent="EnemyStats" unique_id=1626256390]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 58.0
+offset_right = 274.0
+offset_bottom = 110.0
+script = ExtResource("12_fjou6")
+
+[node name="nullStatus" type="Sprite2D" parent="EnemyStats/Statuses" unique_id=585656174]
+position = Vector2(25, 27)
+texture = ExtResource("13_454rk")
+
+[node name="PanelContainer" type="PanelContainer" parent="EnemyStats/Statuses/nullStatus" unique_id=335507308]
+visible = false
+offset_left = -26.0
+offset_top = 16.0
+offset_right = 141.0
+offset_bottom = 90.0
+theme = ExtResource("1_gwxrf")
+
+[node name="Label" type="Label" parent="EnemyStats/Statuses/nullStatus/PanelContainer" unique_id=602911173]
+layout_mode = 2
+text = "No status. Something broke."
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="EnemyStats/Statuses/nullStatus" unique_id=499588072]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("15_fjou6")
+
 [node name="Items" type="Panel" parent="." unique_id=288941494]
 visible = false
 layout_mode = 0
@@ -421,6 +458,7 @@ text = "A very normal die. Rolls from 0 to 20 following the normal distribution"
 autowrap_mode = 2
 
 [node name="hitOverlay" type="ColorRect" parent="diceUI" unique_id=724142342]
+visible = false
 layout_mode = 0
 offset_left = -64.0
 offset_right = 1217.0

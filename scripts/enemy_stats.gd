@@ -27,6 +27,7 @@ var active = "default"
 func attack():
 	await die.spinDie(20)
 	var n = int(die.get_child(1).text)
+	@warning_ignore("integer_division")
 	var d = (dmg if !weakened else (dmg+1)/2)
 	if n == 20:
 		player_stats.updateHP(d*-2)
@@ -68,6 +69,10 @@ func haveTurn():
 			await act(ai)
 		else:
 			print("stunned")
+			if shader.get_shader_parameter("alpha") == null:
+				shader.set_shader_parameter("alpha", 0.0)
+			shader.set_shader_parameter("alpha",shader.get_shader_parameter("alpha")-0.2)
+			print("alhpa = "+str(shader.get_shader_parameter("alpha")))
 			endTurn()
 func endTurn():
 	if weakened:
@@ -87,8 +92,8 @@ func updateHP(n):
 	elif n < 0:
 		await overlay(Color(1, 0, 0))
 		hp += n
-	if hp > 20:
-		hp = 20
+	if hp > maxHp:
+		hp = maxHp
 	elif hp <= 0:
 		hp = 0
 		await fader.fadeIn()

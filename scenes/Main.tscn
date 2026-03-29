@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://g2p2aheawqhh" path="res://scripts/spell_4.gd" id="29_kxyth"]
 [ext_resource type="Script" uid="uid://dqec15qitab11" path="res://scripts/spell_5.gd" id="30_cobve"]
 [ext_resource type="Script" uid="uid://cpw2enwks5sde" path="res://scripts/spell_6.gd" id="31_cmqll"]
+[ext_resource type="Texture2D" uid="uid://cy3gpy0pqv6g8" path="res://assets/sjcs.png" id="35_kxyth"]
 
 [sub_resource type="Theme" id="Theme_r0du0"]
 Panel/styles/panel = ExtResource("1_1nqs0")
@@ -735,31 +736,39 @@ offset_top = 43.0
 offset_right = 78.0
 offset_bottom = 83.0
 
-[node name="menuCam" type="Camera2D" parent="Overworld" unique_id=1674422591]
-position = Vector2(7000, 50)
-scale = Vector2(2, 2)
-script = ExtResource("28_ma7h6")
-
 [node name="MenuBG" type="Sprite2D" parent="Overworld" unique_id=122703911]
-position = Vector2(7000, 50)
-scale = Vector2(6.6, 6.6)
-texture = ExtResource("12_v0vrg")
+position = Vector2(7001.0005, 50.000004)
+scale = Vector2(4.5, 5.1)
+texture = ExtResource("35_kxyth")
 
 [node name="load" type="Button" parent="Overworld/MenuBG" unique_id=722790427]
-offset_left = -25.0
-offset_top = -6.0
-offset_right = 174.39355
-offset_bottom = 49.151516
+offset_left = -19.555555
+offset_top = 15.8
+offset_right = 101.3336
+offset_bottom = 62.8
 scale = Vector2(0.25, 0.25)
 text = "Load game"
 script = ExtResource("29_e2s0e")
 
+[node name="Button" type="Button" parent="Overworld/MenuBG" unique_id=1265222360]
+offset_left = -19.777739
+offset_top = 3.6000001
+offset_right = 101.11093
+offset_bottom = 50.6
+scale = Vector2(0.25, 0.25)
+text = "New game"
+
+[node name="menuCam" type="Camera2D" parent="Overworld" unique_id=1674422591]
+position = Vector2(7000, 50)
+zoom = Vector2(2, 2)
+script = ExtResource("28_ma7h6")
+
 [node name="fader" type="ColorRect" parent="Overworld" unique_id=827979385]
 visible = false
-offset_left = -10009.0
-offset_top = -4956.0
-offset_right = 9991.0
-offset_bottom = 15044.0
+offset_left = -9994.0
+offset_top = -4894.0
+offset_right = 10006.0
+offset_bottom = 15106.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("20_cmqll")
